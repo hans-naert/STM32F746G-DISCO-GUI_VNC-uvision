@@ -445,6 +445,11 @@
                 </FileArmAds>
               </FileOption>
             </File>
+            <File>
+              <FileName>vio.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\vio.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -797,6 +802,12 @@
       </api>
     </apis>
     <components>
+      <component Capiversion="1.0.0" Cclass="CMSIS Driver" Cgroup="VIO" Csub="Custom" Cvendor="ARM" Cversion="1.0.0" custom="1">
+        <package name="CMSIS" schemaVersion="1.7.40" url="https://www.keil.com/pack/" vendor="ARM" version="6.2.0"/>
+        <targetInfos>
+          <targetInfo name="Target_1"/>
+        </targetInfos>
+      </component>
       <component Cclass="CMSIS-Compiler" Cgroup="CORE" Cvendor="ARM" Cversion="1.1.0" condition="ARMCC CortexDevice">
         <package name="CMSIS-Compiler" schemaVersion="1.7.36" url="https://www.keil.com/pack/" vendor="ARM" version="2.1.0"/>
         <targetInfos>
@@ -847,12 +858,6 @@
       </component>
       <component Capiversion="2.4.0" Cclass="CMSIS Driver" Cgroup="USART" Cvendor="Keil" Cversion="3.0.0" condition="CMSIS Driver requirements">
         <package name="CMSIS-Driver_STM32" schemaVersion="1.7.37" url="https://www.keil.com/pack/" vendor="ARM" version="1.2.0"/>
-        <targetInfos>
-          <targetInfo name="Target_1"/>
-        </targetInfos>
-      </component>
-      <component Capiversion="1.0.0" Cclass="CMSIS Driver" Cgroup="VIO" Csub="Board" Cvendor="Keil" Cversion="2.0.2" condition="STM32F746G-DISCO GPIO">
-        <package name="STM32F746G-DISCO_BSP" schemaVersion="1.7.36" url="https://www.keil.com/pack/" vendor="Keil" version="1.0.0"/>
         <targetInfos>
           <targetInfo name="Target_1"/>
         </targetInfos>
