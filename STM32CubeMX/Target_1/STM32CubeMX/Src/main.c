@@ -135,7 +135,7 @@ static void MX_USART6_UART_Init(void);
 static void MX_USB_OTG_FS_HCD_Init(void);
 static void MX_SDMMC1_SD_Init(void);
 /* USER CODE BEGIN PFP */
-
+extern uint8_t BSP_SDRAM_Init(void);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -154,13 +154,21 @@ int main(void)
 
   /* USER CODE END 1 */
 
+  /* Enable the CPU Cache */
+
+  /* Enable I-Cache---------------------------------------------------------*/
+  SCB_EnableICache();
+
+  /* Enable D-Cache---------------------------------------------------------*/
+  SCB_EnableDCache();
+
   /* MCU Configuration--------------------------------------------------------*/
 
   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
   HAL_Init();
 
   /* USER CODE BEGIN Init */
-
+	BSP_SDRAM_Init();
   /* USER CODE END Init */
 
   /* Configure the system clock */
@@ -170,7 +178,7 @@ int main(void)
   PeriphCommonClock_Config();
 
   /* USER CODE BEGIN SysInit */
-
+  SystemCoreClockUpdate();
   /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
@@ -180,7 +188,7 @@ int main(void)
   MX_DCMI_Init();
   MX_DMA2D_Init();
   MX_ETH_Init();
-  MX_FMC_Init();
+  //MX_FMC_Init();
   MX_I2C1_Init();
   MX_I2C3_Init();
   MX_LTDC_Init();
@@ -199,6 +207,7 @@ int main(void)
   MX_USART6_UART_Init();
   MX_USB_OTG_FS_HCD_Init();
   /* USER CODE BEGIN 2 */
+	
    
   stdio_init();                         /* Initialize STDIO */
 

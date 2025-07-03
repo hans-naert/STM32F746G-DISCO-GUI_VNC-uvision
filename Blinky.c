@@ -95,9 +95,12 @@ __NO_RETURN void app_main_thread (void *argument) {
 /*-----------------------------------------------------------------------------
  * Application initialization
  *----------------------------------------------------------------------------*/
+int Init_GUIThread (void);
+
 int app_main (void) {
   osKernelInitialize();                         /* Initialize CMSIS-RTOS2 */
   osThreadNew(app_main_thread, NULL, NULL);
+	Init_GUIThread();
   osKernelStart();                              /* Start thread execution */
   return 0;
 }
