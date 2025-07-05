@@ -128,5 +128,3 @@ build-gen:
           category: sourceC
         - file: D:/cursussen/IoT-Systems/voorbereiding/STM32F746G-DISCO/STM32F746G-DISCO-GUI_VNC-uvision/LCD_X.c
           category: sourceC
-        - file: D:/cursussen/IoT-Systems/voorbereiding/STM32F746G-DISCO/STM32F746G-DISCO-GUI_VNC-uvision/stm32746g_discovery_sdram.c
-          category: sourceC

@@ -465,11 +465,6 @@
               <FileType>1</FileType>
               <FilePath>.\LCD_X.c</FilePath>
             </File>
-            <File>
-              <FileName>stm32746g_discovery_sdram.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\stm32746g_discovery_sdram.c</FilePath>
-            </File>
           </Files>
         </Group>
         <Group>
