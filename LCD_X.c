@@ -71,92 +71,92 @@ extern void LCD_X_DisplayOff(void);
 *   to set port pins to their initial values
 */
 void LCD_X_Init(void) {
-  GPIO_InitTypeDef GPIO_InitStructure;
-  RCC_PeriphCLKInitTypeDef RCC_PeriphClkInitStructure;
+//  GPIO_InitTypeDef GPIO_InitStructure;
+//  RCC_PeriphCLKInitTypeDef RCC_PeriphClkInitStructure;
 
-  /* Enable GPIOs clock */
-  __GPIOE_CLK_ENABLE();
-  __GPIOG_CLK_ENABLE();
-  __GPIOI_CLK_ENABLE();
-  __GPIOJ_CLK_ENABLE();
-  __GPIOK_CLK_ENABLE();
+//  /* Enable GPIOs clock */
+//  __GPIOE_CLK_ENABLE();
+//  __GPIOG_CLK_ENABLE();
+//  __GPIOI_CLK_ENABLE();
+//  __GPIOJ_CLK_ENABLE();
+//  __GPIOK_CLK_ENABLE();
 
-  /* GPIOs configuration */
-  /*
-   +------------------+-------------------+-------------------+
-   +                   LCD pins assignment                    +
-   +------------------+-------------------+-------------------+
-   |  LCD_R0 <-> PI15 |  LCD_G0 <-> PJ7   |  LCD_B0 <-> PE4   |
-   |  LCD_R1 <-> PJ0  |  LCD_G1 <-> PJ8   |  LCD_B1 <-> PJ13  |
-   |  LCD_R2 <-> PJ1  |  LCD_G2 <-> PJ9   |  LCD_B2 <-> PJ14  |
-   |  LCD_R3 <-> PJ2  |  LCD_G3 <-> PJ10  |  LCD_B3 <-> PJ15  |
-   |  LCD_R4 <-> PJ3  |  LCD_G4 <-> PJ11  |  LCD_B4 <-> PG12  |
-   |  LCD_R5 <-> PJ4  |  LCD_G5 <-> PK0   |  LCD_B5 <-> PK4   |
-   |  LCD_R6 <-> PJ5  |  LCD_G6 <-> PK1   |  LCD_B6 <-> PK5   |
-   |  LCD_R7 <-> PJ6  |  LCD_G7 <-> PK2   |  LCD_B7 <-> PK6   |
-   ------------------------------------------------------------
-   |  LCD_HSYNC <-> PI10         |  LCD_VSYNC <-> PI9         |
-   |  LCD_CLK   <-> PI14         |  LCD_DE    <-> PK7         |
-   |  LCD_DISP  <-> PI12 (GPIO)  |  LCD_INT   <-> PI13        |
-   ------------------------------------------------------------
-   |  LCD_SCL <-> PH7 (I2C3 SCL) | LCD_SDA <-> PH8 (I2C3 SDA) |
-   ------------------------------------------------------------
-   |  LCD_BL_CTRL <-> PK3 (GPIO) |
-   -------------------------------
-  */
-  GPIO_InitStructure.Mode = GPIO_MODE_AF_PP;
-  GPIO_InitStructure.Pull = GPIO_NOPULL;
-  GPIO_InitStructure.Speed = GPIO_SPEED_FAST;
+//  /* GPIOs configuration */
+//  /*
+//   +------------------+-------------------+-------------------+
+//   +                   LCD pins assignment                    +
+//   +------------------+-------------------+-------------------+
+//   |  LCD_R0 <-> PI15 |  LCD_G0 <-> PJ7   |  LCD_B0 <-> PE4   |
+//   |  LCD_R1 <-> PJ0  |  LCD_G1 <-> PJ8   |  LCD_B1 <-> PJ13  |
+//   |  LCD_R2 <-> PJ1  |  LCD_G2 <-> PJ9   |  LCD_B2 <-> PJ14  |
+//   |  LCD_R3 <-> PJ2  |  LCD_G3 <-> PJ10  |  LCD_B3 <-> PJ15  |
+//   |  LCD_R4 <-> PJ3  |  LCD_G4 <-> PJ11  |  LCD_B4 <-> PG12  |
+//   |  LCD_R5 <-> PJ4  |  LCD_G5 <-> PK0   |  LCD_B5 <-> PK4   |
+//   |  LCD_R6 <-> PJ5  |  LCD_G6 <-> PK1   |  LCD_B6 <-> PK5   |
+//   |  LCD_R7 <-> PJ6  |  LCD_G7 <-> PK2   |  LCD_B7 <-> PK6   |
+//   ------------------------------------------------------------
+//   |  LCD_HSYNC <-> PI10         |  LCD_VSYNC <-> PI9         |
+//   |  LCD_CLK   <-> PI14         |  LCD_DE    <-> PK7         |
+//   |  LCD_DISP  <-> PI12 (GPIO)  |  LCD_INT   <-> PI13        |
+//   ------------------------------------------------------------
+//   |  LCD_SCL <-> PH7 (I2C3 SCL) | LCD_SDA <-> PH8 (I2C3 SDA) |
+//   ------------------------------------------------------------
+//   |  LCD_BL_CTRL <-> PK3 (GPIO) |
+//   -------------------------------
+//  */
+//  GPIO_InitStructure.Mode = GPIO_MODE_AF_PP;
+//  GPIO_InitStructure.Pull = GPIO_NOPULL;
+//  GPIO_InitStructure.Speed = GPIO_SPEED_FAST;
 
-  GPIO_InitStructure.Alternate= GPIO_AF9_LTDC;
+//  GPIO_InitStructure.Alternate= GPIO_AF9_LTDC;
 
-  /* GPIOG configuration */
-  GPIO_InitStructure.Pin = GPIO_PIN_12;
-  HAL_GPIO_Init(GPIOG, &GPIO_InitStructure);
+//  /* GPIOG configuration */
+//  GPIO_InitStructure.Pin = GPIO_PIN_12;
+//  HAL_GPIO_Init(GPIOG, &GPIO_InitStructure);
 
-  GPIO_InitStructure.Alternate= GPIO_AF14_LTDC;
+//  GPIO_InitStructure.Alternate= GPIO_AF14_LTDC;
 
-  /* GPIOE configuration */
-  GPIO_InitStructure.Pin = GPIO_PIN_4;
-  HAL_GPIO_Init(GPIOE, &GPIO_InitStructure);
+//  /* GPIOE configuration */
+//  GPIO_InitStructure.Pin = GPIO_PIN_4;
+//  HAL_GPIO_Init(GPIOE, &GPIO_InitStructure);
 
-  /* GPIOI configuration */
-  GPIO_InitStructure.Pin = GPIO_PIN_9  | GPIO_PIN_10 | GPIO_PIN_14 | GPIO_PIN_15;
-  HAL_GPIO_Init(GPIOI, &GPIO_InitStructure);
+//  /* GPIOI configuration */
+//  GPIO_InitStructure.Pin = GPIO_PIN_9  | GPIO_PIN_10 | GPIO_PIN_14 | GPIO_PIN_15;
+//  HAL_GPIO_Init(GPIOI, &GPIO_InitStructure);
 
-  /* GPIOJ configuration */
-  GPIO_InitStructure.Pin = GPIO_PIN_0  | GPIO_PIN_1  | GPIO_PIN_2  | GPIO_PIN_3  |
-                           GPIO_PIN_4  | GPIO_PIN_5  | GPIO_PIN_6  | GPIO_PIN_7  |
-                           GPIO_PIN_8  | GPIO_PIN_9  | GPIO_PIN_10 | GPIO_PIN_11 |
-                                         GPIO_PIN_13 | GPIO_PIN_14 | GPIO_PIN_15;
-  HAL_GPIO_Init(GPIOJ, &GPIO_InitStructure);
+//  /* GPIOJ configuration */
+//  GPIO_InitStructure.Pin = GPIO_PIN_0  | GPIO_PIN_1  | GPIO_PIN_2  | GPIO_PIN_3  |
+//                           GPIO_PIN_4  | GPIO_PIN_5  | GPIO_PIN_6  | GPIO_PIN_7  |
+//                           GPIO_PIN_8  | GPIO_PIN_9  | GPIO_PIN_10 | GPIO_PIN_11 |
+//                                         GPIO_PIN_13 | GPIO_PIN_14 | GPIO_PIN_15;
+//  HAL_GPIO_Init(GPIOJ, &GPIO_InitStructure);
 
-  /* GPIOK configuration */
-  GPIO_InitStructure.Pin = GPIO_PIN_0  | GPIO_PIN_1  | GPIO_PIN_2  |
-                           GPIO_PIN_4  | GPIO_PIN_5  | GPIO_PIN_6  | GPIO_PIN_7;
-  HAL_GPIO_Init(GPIOK, &GPIO_InitStructure);
+//  /* GPIOK configuration */
+//  GPIO_InitStructure.Pin = GPIO_PIN_0  | GPIO_PIN_1  | GPIO_PIN_2  |
+//                           GPIO_PIN_4  | GPIO_PIN_5  | GPIO_PIN_6  | GPIO_PIN_7;
+//  HAL_GPIO_Init(GPIOK, &GPIO_InitStructure);
 
-  GPIO_InitStructure.Mode = GPIO_MODE_OUTPUT_PP;
+//  GPIO_InitStructure.Mode = GPIO_MODE_OUTPUT_PP;
 
-  /* GPIOI PI12 configuration */
-  GPIO_InitStructure.Pin = GPIO_PIN_12;
-  HAL_GPIO_Init(GPIOI, &GPIO_InitStructure);
+//  /* GPIOI PI12 configuration */
+//  GPIO_InitStructure.Pin = GPIO_PIN_12;
+//  HAL_GPIO_Init(GPIOI, &GPIO_InitStructure);
 
-  /* GPIOK PK3 configuration */
-  GPIO_InitStructure.Pin = GPIO_PIN_3;
-  HAL_GPIO_Init(GPIOK, &GPIO_InitStructure);
+//  /* GPIOK PK3 configuration */
+//  GPIO_InitStructure.Pin = GPIO_PIN_3;
+//  HAL_GPIO_Init(GPIOK, &GPIO_InitStructure);
 
-  /* LCD clock configuration 
-       PLLSAI_VCO Input = HSE_VALUE / PLL_M = 1MHz
-       PLLSAI_VCO Output = PLLSAI_VCO Input * PLLSAIN = 192MHz
-       PLLLCDCLK = PLLSAI_VCO Output / PLLSAIR = 192/5 = 38.4MHz
-       LTDC clock frequency = PLLLCDCLK / LTDC_PLLSAI_DIVR_4 = 38.4/4 = 9.6MHz
-  */
-  RCC_PeriphClkInitStructure.PeriphClockSelection = RCC_PERIPHCLK_LTDC;
-  RCC_PeriphClkInitStructure.PLLSAI.PLLSAIN = 192;
-  RCC_PeriphClkInitStructure.PLLSAI.PLLSAIR = 5;
-  RCC_PeriphClkInitStructure.PLLSAIDivR = RCC_PLLSAIDIVR_4;
-  HAL_RCCEx_PeriphCLKConfig(&RCC_PeriphClkInitStructure); 
+//  /* LCD clock configuration 
+//       PLLSAI_VCO Input = HSE_VALUE / PLL_M = 1MHz
+//       PLLSAI_VCO Output = PLLSAI_VCO Input * PLLSAIN = 192MHz
+//       PLLLCDCLK = PLLSAI_VCO Output / PLLSAIR = 192/5 = 38.4MHz
+//       LTDC clock frequency = PLLLCDCLK / LTDC_PLLSAI_DIVR_4 = 38.4/4 = 9.6MHz
+//  */
+//  RCC_PeriphClkInitStructure.PeriphClockSelection = RCC_PERIPHCLK_LTDC;
+//  RCC_PeriphClkInitStructure.PLLSAI.PLLSAIN = 192;
+//  RCC_PeriphClkInitStructure.PLLSAI.PLLSAIR = 5;
+//  RCC_PeriphClkInitStructure.PLLSAIDivR = RCC_PLLSAIDIVR_4;
+//  HAL_RCCEx_PeriphCLKConfig(&RCC_PeriphClkInitStructure); 
 }
 
 /*********************************************************************
