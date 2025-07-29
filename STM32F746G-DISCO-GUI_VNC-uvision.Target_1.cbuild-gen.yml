@@ -8,7 +8,8 @@ build-gen:
     dsp: off
     endian: little
     fpu: sp
-  add-path: 
+  add-path:
+    - D:/cursussen/IoT-Systems/voorbereiding/STM32F746G-DISCO/STM32F746G-DISCO-GUI_VNC-uvision
   components:
     - component: ARM::CMSIS Driver:VIO:Custom@1.0.0
       from-pack: ARM::CMSIS@6.2.0
@@ -91,6 +92,11 @@ build-gen:
       files:
         - file: D:/cursussen/IoT-Systems/voorbereiding/STM32F746G-DISCO/STM32F746G-DISCO-GUI_VNC-uvision/RTE/Graphics/LCDConf.c
           category: sourceC
+    - component: Segger::Graphics&MDK-Pro:Input Device:Touchscreen@6.32.3
+      from-pack: Keil::MDK-Middleware_Graphics@1.3.1
+      files:
+        - file: C:/Users/u0081767/AppData/Local/Arm/Packs/Keil/MDK-Middleware_Graphics/1.3.1/emWin/Sample/GUI_X/GUI_X_Touch.c
+          category: sourceC
     - component: Segger::Graphics&MDK-Pro:Tools:GUI Builder@6.32.3
       from-pack: Keil::MDK-Middleware_Graphics@1.3.1
       files:
@@ -127,4 +133,12 @@ build-gen:
         - file: D:/cursussen/IoT-Systems/voorbereiding/STM32F746G-DISCO/STM32F746G-DISCO-GUI_VNC-uvision/FramewinDLG.c
           category: sourceC
         - file: D:/cursussen/IoT-Systems/voorbereiding/STM32F746G-DISCO/STM32F746G-DISCO-GUI_VNC-uvision/LCD_X.c
+          category: sourceC
+        - file: D:/cursussen/IoT-Systems/voorbereiding/STM32F746G-DISCO/STM32F746G-DISCO-GUI_VNC-uvision/Touch_746G_Discovery.c
+          category: sourceC
+        - file: D:/cursussen/IoT-Systems/voorbereiding/STM32F746G-DISCO/STM32F746G-DISCO-GUI_VNC-uvision/stm32746g_discovery_ts.c
+          category: sourceC
+        - file: D:/cursussen/IoT-Systems/voorbereiding/STM32F746G-DISCO/STM32F746G-DISCO-GUI_VNC-uvision/ft5336.c
+          category: sourceC
+        - file: D:/cursussen/IoT-Systems/voorbereiding/STM32F746G-DISCO/STM32F746G-DISCO-GUI_VNC-uvision/stm32746g_discovery.c
           category: sourceC

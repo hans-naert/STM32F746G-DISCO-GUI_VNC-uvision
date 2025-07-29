@@ -274,7 +274,7 @@ int main(void)
   MX_USART6_UART_Init();
   MX_USB_OTG_FS_HCD_Init();
   /* USER CODE BEGIN 2 */
-	   
+		
   stdio_init();                         /* Initialize STDIO */
 
   vioInit();                            /* Initialize Virtual I/O */
@@ -1549,7 +1549,7 @@ static void MX_FMC_Init(void)
     Error_Handler( );
   }
 
-  /* USER CODE BEGIN FMC_Init 2 */	
+  /* USER CODE BEGIN FMC_Init 2 */
 	uint32_t refreshCount=0x0603;   /* SDRAM refresh counter (100Mhz SD clock) */
 	SDRAM_Initialization_sequence(&hsdram1,refreshCount);
 
