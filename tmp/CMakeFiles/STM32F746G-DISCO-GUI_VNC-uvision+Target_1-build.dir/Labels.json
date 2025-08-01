@@ -1,0 +1,37 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "D:/cursussen/IoT-Systems/voorbereiding/20250801/main/tmp/CMakeFiles/STM32F746G-DISCO-GUI_VNC-uvision+Target_1-build"
+		},
+		{
+			"file" : "D:/cursussen/IoT-Systems/voorbereiding/20250801/main/tmp/CMakeFiles/STM32F746G-DISCO-GUI_VNC-uvision+Target_1-build.rule"
+		},
+		{
+			"file" : "D:/cursussen/IoT-Systems/voorbereiding/20250801/main/tmp/STM32F746G-DISCO-GUI_VNC-uvision+Target_1/src/STM32F746G-DISCO-GUI_VNC-uvision+Target_1-stamp/STM32F746G-DISCO-GUI_VNC-uvision+Target_1-build.rule"
+		},
+		{
+			"file" : "D:/cursussen/IoT-Systems/voorbereiding/20250801/main/tmp/STM32F746G-DISCO-GUI_VNC-uvision+Target_1/src/STM32F746G-DISCO-GUI_VNC-uvision+Target_1-stamp/STM32F746G-DISCO-GUI_VNC-uvision+Target_1-configure.rule"
+		},
+		{
+			"file" : "D:/cursussen/IoT-Systems/voorbereiding/20250801/main/tmp/STM32F746G-DISCO-GUI_VNC-uvision+Target_1/src/STM32F746G-DISCO-GUI_VNC-uvision+Target_1-stamp/STM32F746G-DISCO-GUI_VNC-uvision+Target_1-patch.rule"
+		},
+		{
+			"file" : "D:/cursussen/IoT-Systems/voorbereiding/20250801/main/tmp/STM32F746G-DISCO-GUI_VNC-uvision+Target_1/src/STM32F746G-DISCO-GUI_VNC-uvision+Target_1-stamp/STM32F746G-DISCO-GUI_VNC-uvision+Target_1-update.rule"
+		},
+		{
+			"file" : "D:/cursussen/IoT-Systems/voorbereiding/20250801/main/tmp/STM32F746G-DISCO-GUI_VNC-uvision+Target_1/src/STM32F746G-DISCO-GUI_VNC-uvision+Target_1-stamp/STM32F746G-DISCO-GUI_VNC-uvision+Target_1-download.rule"
+		},
+		{
+			"file" : "D:/cursussen/IoT-Systems/voorbereiding/20250801/main/tmp/STM32F746G-DISCO-GUI_VNC-uvision+Target_1/src/STM32F746G-DISCO-GUI_VNC-uvision+Target_1-stamp/STM32F746G-DISCO-GUI_VNC-uvision+Target_1-mkdir.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"STM32F746G-DISCO-GUI_VNC-uvision+Target_1"
+		],
+		"name" : "STM32F746G-DISCO-GUI_VNC-uvision+Target_1-build"
+	}
+}

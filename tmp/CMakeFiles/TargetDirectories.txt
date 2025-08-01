@@ -1,0 +1,8 @@
+D:/cursussen/IoT-Systems/voorbereiding/20250801/main/tmp/CMakeFiles/database.dir
+D:/cursussen/IoT-Systems/voorbereiding/20250801/main/tmp/CMakeFiles/STM32F746G-DISCO-GUI_VNC-uvision+Target_1.dir
+D:/cursussen/IoT-Systems/voorbereiding/20250801/main/tmp/CMakeFiles/STM32F746G-DISCO-GUI_VNC-uvision+Target_1-build.dir
+D:/cursussen/IoT-Systems/voorbereiding/20250801/main/tmp/CMakeFiles/STM32F746G-DISCO-GUI_VNC-uvision+Target_1-configure.dir
+D:/cursussen/IoT-Systems/voorbereiding/20250801/main/tmp/CMakeFiles/STM32F746G-DISCO-GUI_VNC-uvision+Target_1-executes.dir
+D:/cursussen/IoT-Systems/voorbereiding/20250801/main/tmp/CMakeFiles/STM32F746G-DISCO-GUI_VNC-uvision+Target_1-database.dir
+D:/cursussen/IoT-Systems/voorbereiding/20250801/main/tmp/CMakeFiles/edit_cache.dir
+D:/cursussen/IoT-Systems/voorbereiding/20250801/main/tmp/CMakeFiles/rebuild_cache.dir

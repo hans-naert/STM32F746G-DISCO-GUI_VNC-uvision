@@ -1,0 +1,22 @@
+build-idx:
+  generated-by: csolution version 2.10.0
+  csolution: STM32F746G-DISCO-GUI_VNC-uvision.csolution.yml
+  tmpdir: tmp
+  cprojects:
+    - cproject: STM32F746G-DISCO-GUI_VNC-uvision.cproject.yml
+  cbuilds:
+    - cbuild: STM32F746G-DISCO-GUI_VNC-uvision+Target_1.cbuild.yml
+      project: STM32F746G-DISCO-GUI_VNC-uvision
+      configuration: +Target_1
+      clayers:
+        - clayer: STM32CubeMX/Target_1/STM32F746G-DISCO-GUI_VNC-uvision.cgen.yml
+      messages:
+        warnings:
+          - "STM32F746G-DISCO-GUI_VNC-uvision.cproject.yml - dependency validation for context 'STM32F746G-DISCO-GUI_VNC-uvision+Target_1' failed:\nMISSING Segger::Graphics&MDK-Pro:Input Device:Touchscreen@6.32.3\n  require Board Support:Touchscreen"
+        info:
+          - STM32F746G-DISCO-GUI_VNC-uvision.cbuild-pack.yml - file is already up-to-date
+          - STM32F746G-DISCO-GUI_VNC-uvision+Target_1.cbuild-run.yml - file generated successfully
+          - STM32F746G-DISCO-GUI_VNC-uvision+Target_1.cbuild.yml - file is already up-to-date
+      packs-unused:
+        - pack: ARM::CMSIS-DSP@1.16.2
+        - pack: ARM::CMSIS-NN@4.1.0

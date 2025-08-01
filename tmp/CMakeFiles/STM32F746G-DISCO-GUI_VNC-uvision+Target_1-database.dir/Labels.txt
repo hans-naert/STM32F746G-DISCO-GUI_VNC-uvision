@@ -1,0 +1,11 @@
+# Target labels
+ STM32F746G-DISCO-GUI_VNC-uvision+Target_1
+# Source files and their labels
+D:/cursussen/IoT-Systems/voorbereiding/20250801/main/tmp/CMakeFiles/STM32F746G-DISCO-GUI_VNC-uvision+Target_1-database
+D:/cursussen/IoT-Systems/voorbereiding/20250801/main/tmp/CMakeFiles/STM32F746G-DISCO-GUI_VNC-uvision+Target_1-database.rule
+D:/cursussen/IoT-Systems/voorbereiding/20250801/main/tmp/STM32F746G-DISCO-GUI_VNC-uvision+Target_1/src/STM32F746G-DISCO-GUI_VNC-uvision+Target_1-stamp/STM32F746G-DISCO-GUI_VNC-uvision+Target_1-database.rule
+D:/cursussen/IoT-Systems/voorbereiding/20250801/main/tmp/STM32F746G-DISCO-GUI_VNC-uvision+Target_1/src/STM32F746G-DISCO-GUI_VNC-uvision+Target_1-stamp/STM32F746G-DISCO-GUI_VNC-uvision+Target_1-configure.rule
+D:/cursussen/IoT-Systems/voorbereiding/20250801/main/tmp/STM32F746G-DISCO-GUI_VNC-uvision+Target_1/src/STM32F746G-DISCO-GUI_VNC-uvision+Target_1-stamp/STM32F746G-DISCO-GUI_VNC-uvision+Target_1-patch.rule
+D:/cursussen/IoT-Systems/voorbereiding/20250801/main/tmp/STM32F746G-DISCO-GUI_VNC-uvision+Target_1/src/STM32F746G-DISCO-GUI_VNC-uvision+Target_1-stamp/STM32F746G-DISCO-GUI_VNC-uvision+Target_1-update.rule
+D:/cursussen/IoT-Systems/voorbereiding/20250801/main/tmp/STM32F746G-DISCO-GUI_VNC-uvision+Target_1/src/STM32F746G-DISCO-GUI_VNC-uvision+Target_1-stamp/STM32F746G-DISCO-GUI_VNC-uvision+Target_1-download.rule
+D:/cursussen/IoT-Systems/voorbereiding/20250801/main/tmp/STM32F746G-DISCO-GUI_VNC-uvision+Target_1/src/STM32F746G-DISCO-GUI_VNC-uvision+Target_1-stamp/STM32F746G-DISCO-GUI_VNC-uvision+Target_1-mkdir.rule

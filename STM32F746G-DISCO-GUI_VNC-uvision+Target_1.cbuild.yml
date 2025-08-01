@@ -1,0 +1,945 @@
+build:
+  generated-by: csolution version 2.10.0
+  solution: STM32F746G-DISCO-GUI_VNC-uvision.csolution.yml
+  project: STM32F746G-DISCO-GUI_VNC-uvision.cproject.yml
+  context: STM32F746G-DISCO-GUI_VNC-uvision+Target_1
+  compiler: AC6
+  device: STMicroelectronics::STM32F746NGHx
+  device-pack: Keil::STM32F7xx_DFP@3.1.0
+  device-books:
+    - name: https://www.st.com/resource/en/reference_manual/rm0385-stm32f75xxx-and-stm32f74xxx-advanced-armbased-32bit-mcus-stmicroelectronics.pdf
+      title: STM32F74xx/5xx Reference Manual
+    - name: https://www.st.com/resource/en/datasheet/stm32f745ie.pdf
+      title: STM32F745/746 Data Sheet
+    - name: https://www.st.com/resource/en/user_manual/um1905-description-of-stm32f7-hal-and-lowlayer-drivers-stmicroelectronics.pdf
+      title: STM32F7xx HAL Drivers
+    - name: https://developer.arm.com/documentation/dui0646/latest
+      title: Cortex-M7 Generic User Guide
+  dbgconf:
+    - file: .cmsis/STM32F746G-DISCO-GUI_VNC-uvision+Target_1.dbgconf
+      version: 2.0.0
+  processor:
+    endian: little
+    fpu: sp
+    core: Cortex-M7
+  packs:
+    - pack: ARM::CMSIS-Compiler@2.1.0
+      path: ${CMSIS_PACK_ROOT}/ARM/CMSIS-Compiler/2.1.0
+    - pack: ARM::CMSIS-Driver@2.10.0
+      path: ${CMSIS_PACK_ROOT}/ARM/CMSIS-Driver/2.10.0
+    - pack: ARM::CMSIS-Driver_STM32@1.2.0
+      path: ${CMSIS_PACK_ROOT}/ARM/CMSIS-Driver_STM32/1.2.0
+    - pack: ARM::CMSIS-RTX@5.9.0
+      path: ${CMSIS_PACK_ROOT}/ARM/CMSIS-RTX/5.9.0
+    - pack: ARM::CMSIS@6.2.0
+      path: ${CMSIS_PACK_ROOT}/ARM/CMSIS/6.2.0
+    - pack: Keil::MDK-Middleware@8.0.0
+      path: ${CMSIS_PACK_ROOT}/Keil/MDK-Middleware/8.0.0
+    - pack: Keil::MDK-Middleware_Graphics@1.3.1
+      path: ${CMSIS_PACK_ROOT}/Keil/MDK-Middleware_Graphics/1.3.1
+    - pack: Keil::STM32F7xx_DFP@3.1.0
+      path: ${CMSIS_PACK_ROOT}/Keil/STM32F7xx_DFP/3.1.0
+  optimize: debug
+  debug: on
+  misc:
+    ASM:
+      - -masm=auto
+    C:
+      - -std=c11
+      - -fno-rtti
+      - -funsigned-char
+      - -fshort-enums
+      - -fshort-wchar
+      - -ffunction-sections
+      - -Wall
+      - -Wextra
+      - -Wno-packed
+      - -Wno-reserved-id-macro
+      - -Wno-unused-macros
+      - -Wno-documentation-unknown-command
+      - -Wno-documentation
+      - -Wno-license-management
+      - -Wno-parentheses-equality
+    CPP:
+      - -xc++
+      - -std=c++11
+      - -fno-exceptions
+      - -fno-rtti
+      - -funsigned-char
+      - -fshort-enums
+      - -fshort-wchar
+      - -ffunction-sections
+      - -Wall
+      - -Wextra
+      - -Wno-packed
+      - -Wno-reserved-id-macro
+      - -Wno-unused-macros
+      - -Wno-documentation-unknown-command
+      - -Wno-documentation
+      - -Wno-license-management
+      - -Wno-parentheses-equality
+    Link:
+      - --map
+      - --load_addr_map_info
+      - --xref
+      - --callgraph
+      - --symbols
+      - --info sizes
+      - --info totals
+      - --info unused
+      - --info veneers
+      - --strict
+      - --summary_stderr
+      - --info summarysizes
+  define:
+    - EMAC_DCACHE_MAINTENANCE: 0
+    - USE_HAL_DRIVER
+    - STM32F746xx
+    - STM32F746xx
+    - _RTE_
+  define-asm:
+    - STM32F746xx
+    - _RTE_
+  add-path:
+    - .
+    - STM32CubeMX/Target_1/STM32CubeMX/Drivers/STM32F7xx_HAL_Driver/Inc
+    - STM32CubeMX/Target_1/STM32CubeMX/Drivers/STM32F7xx_HAL_Driver/Inc/Legacy
+    - STM32CubeMX/Target_1/STM32CubeMX/Drivers/CMSIS/Device/ST/STM32F7xx/Include
+    - STM32CubeMX/Target_1/STM32CubeMX/Inc
+    - STM32CubeMX/Target_1/MX_Device
+    - RTE/CMSIS
+    - RTE/Network
+    - RTE/_Target_1
+    - ${CMSIS_PACK_ROOT}/ARM/CMSIS-Compiler/2.1.0/include
+    - ${CMSIS_PACK_ROOT}/ARM/CMSIS-Driver_STM32/1.2.0/Drivers
+    - ${CMSIS_PACK_ROOT}/ARM/CMSIS-RTX/5.9.0/Include
+    - ${CMSIS_PACK_ROOT}/ARM/CMSIS/6.2.0/CMSIS/Core/Include
+    - ${CMSIS_PACK_ROOT}/ARM/CMSIS/6.2.0/CMSIS/Driver/Include
+    - ${CMSIS_PACK_ROOT}/ARM/CMSIS/6.2.0/CMSIS/Driver/VIO/Include
+    - ${CMSIS_PACK_ROOT}/ARM/CMSIS/6.2.0/CMSIS/RTOS2/Include
+    - ${CMSIS_PACK_ROOT}/Keil/MDK-Middleware/8.0.0/Components/Network/Include
+    - ${CMSIS_PACK_ROOT}/Keil/MDK-Middleware_Graphics/1.3.1/emWin/Include
+  add-path-asm:
+    - RTE/CMSIS
+    - RTE/Network
+    - RTE/_Target_1
+    - ${CMSIS_PACK_ROOT}/ARM/CMSIS-Compiler/2.1.0/include
+    - ${CMSIS_PACK_ROOT}/ARM/CMSIS-Driver_STM32/1.2.0/Drivers
+    - ${CMSIS_PACK_ROOT}/ARM/CMSIS-RTX/5.9.0/Include
+    - ${CMSIS_PACK_ROOT}/ARM/CMSIS/6.2.0/CMSIS/Core/Include
+    - ${CMSIS_PACK_ROOT}/ARM/CMSIS/6.2.0/CMSIS/Driver/Include
+    - ${CMSIS_PACK_ROOT}/ARM/CMSIS/6.2.0/CMSIS/Driver/VIO/Include
+    - ${CMSIS_PACK_ROOT}/ARM/CMSIS/6.2.0/CMSIS/RTOS2/Include
+    - ${CMSIS_PACK_ROOT}/Keil/MDK-Middleware/8.0.0/Components/Network/Include
+    - ${CMSIS_PACK_ROOT}/Keil/MDK-Middleware_Graphics/1.3.1/emWin/Include
+  output-dirs:
+    intdir: tmp
+    outdir: out/STM32F746G-DISCO-GUI_VNC-uvision/Target_1
+    rtedir: RTE
+  output:
+    - type: elf
+      file: STM32F746G-DISCO-GUI_VNC-uvision.axf
+  components:
+    - component: ARM::CMSIS Driver:VIO:Custom@1.0.0
+      from-pack: ARM::CMSIS@6.2.0
+      selected-by: ARM::CMSIS Driver:VIO:Custom
+      implements: CMSIS Driver:VIO@1.0.0
+      files:
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/6.2.0/CMSIS/Driver/VIO/Source/vio.c
+          category: sourceC
+          attr: template
+          version: 1.0.0
+          select: Virtual I/O
+    - component: ARM::CMSIS-Compiler:CORE@1.1.0
+      condition: ARMCC CortexDevice
+      from-pack: ARM::CMSIS-Compiler@2.1.0
+      selected-by: ARM::CMSIS-Compiler:CORE
+      files:
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS-Compiler/2.1.0/source/armcc/retarget_io.c
+          category: sourceC
+          version: 1.1.0
+    - component: ARM::CMSIS-Compiler:STDERR:Custom@1.1.0
+      condition: CORE
+      from-pack: ARM::CMSIS-Compiler@2.1.0
+      selected-by: ARM::CMSIS-Compiler:STDERR:Custom
+      implements: CMSIS-Compiler:STDERR@1.1.0
+      files:
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS-Compiler/2.1.0/template/stdio/stderr_user.c
+          category: sourceC
+          attr: template
+          version: 1.1.0
+          select: STDERR User Template
+    - component: ARM::CMSIS-Compiler:STDIN:Custom@1.1.0
+      condition: CORE
+      from-pack: ARM::CMSIS-Compiler@2.1.0
+      selected-by: ARM::CMSIS-Compiler:STDIN:Custom
+      implements: CMSIS-Compiler:STDIN@1.1.0
+      files:
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS-Compiler/2.1.0/template/stdio/stdin_user.c
+          category: sourceC
+          attr: template
+          version: 1.1.0
+          select: STDIN User Template
+    - component: ARM::CMSIS-Compiler:STDOUT:Custom@1.1.0
+      condition: CORE
+      from-pack: ARM::CMSIS-Compiler@2.1.0
+      selected-by: ARM::CMSIS-Compiler:STDOUT:Custom
+      implements: CMSIS-Compiler:STDOUT@1.1.0
+      files:
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS-Compiler/2.1.0/template/stdio/stdout_user.c
+          category: sourceC
+          attr: template
+          version: 1.1.0
+          select: STDOUT User Template
+    - component: ARM::CMSIS:CORE@6.1.1
+      condition: ARMv6_7_8-M Device
+      from-pack: ARM::CMSIS@6.2.0
+      selected-by: ARM::CMSIS:CORE
+      files:
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/6.2.0/CMSIS/Core/Include
+          category: include
+          version: 6.1.1
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/6.2.0/CMSIS/Core/Include/tz_context.h
+          category: header
+          version: 6.1.1
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/6.2.0/CMSIS/Core/Template/ARMv8-M/main_s.c
+          category: sourceC
+          attr: template
+          version: 1.1.1
+          select: Secure mode 'main' module for ARMv8-M
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/6.2.0/CMSIS/Core/Template/ARMv8-M/tz_context.c
+          category: sourceC
+          attr: template
+          version: 1.1.1
+          select: RTOS Context Management (TrustZone for ARMv8-M)
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/6.2.0/CMSIS/Documentation/html/Core/index.html
+          category: doc
+          version: 6.1.1
+    - component: ARM::CMSIS:OS Tick:SysTick@1.0.5
+      condition: OS Tick SysTick
+      from-pack: ARM::CMSIS@6.2.0
+      selected-by: ARM::CMSIS:OS Tick:SysTick
+      implements: CMSIS:OS Tick@1.0.1
+      files:
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/6.2.0/CMSIS/RTOS2/Source/os_systick.c
+          category: sourceC
+          version: 1.0.5
+    - component: ARM::CMSIS:RTOS2:Keil RTX5&Source@5.9.0
+      condition: RTX5
+      from-pack: ARM::CMSIS-RTX@5.9.0
+      selected-by: ARM::CMSIS:RTOS2:Keil RTX5&Source
+      implements: CMSIS:RTOS2@2.3.0
+      files:
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS-RTX/5.9.0/Documentation/index.html
+          category: doc
+          version: 5.9.0
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS-RTX/5.9.0/Include/rtx_os.h
+          category: header
+          version: 5.9.0
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS-RTX/5.9.0/RTX5.scvd
+          category: other
+          version: 5.9.0
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS-RTX/5.9.0/Source/GCC/irq_armv7m.S
+          category: source
+          version: 5.9.0
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS-RTX/5.9.0/Source/rtx_delay.c
+          category: source
+          version: 5.9.0
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS-RTX/5.9.0/Source/rtx_evflags.c
+          category: source
+          version: 5.9.0
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS-RTX/5.9.0/Source/rtx_evr.c
+          category: source
+          version: 5.9.0
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS-RTX/5.9.0/Source/rtx_kernel.c
+          category: source
+          version: 5.9.0
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS-RTX/5.9.0/Source/rtx_lib.c
+          category: source
+          version: 5.9.0
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS-RTX/5.9.0/Source/rtx_memory.c
+          category: source
+          version: 5.9.0
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS-RTX/5.9.0/Source/rtx_mempool.c
+          category: source
+          version: 5.9.0
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS-RTX/5.9.0/Source/rtx_msgqueue.c
+          category: source
+          version: 5.9.0
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS-RTX/5.9.0/Source/rtx_mutex.c
+          category: source
+          version: 5.9.0
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS-RTX/5.9.0/Source/rtx_semaphore.c
+          category: source
+          version: 5.9.0
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS-RTX/5.9.0/Source/rtx_system.c
+          category: source
+          version: 5.9.0
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS-RTX/5.9.0/Source/rtx_thread.c
+          category: source
+          version: 5.9.0
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS-RTX/5.9.0/Source/rtx_timer.c
+          category: source
+          version: 5.9.0
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS-RTX/5.9.0/Template/Events.c
+          category: source
+          attr: template
+          version: 2.0.0
+          select: RTX Events
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS-RTX/5.9.0/Template/MemPool.c
+          category: source
+          attr: template
+          version: 2.0.0
+          select: RTX Memory Pool
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS-RTX/5.9.0/Template/MsgQueue.c
+          category: source
+          attr: template
+          version: 2.0.0
+          select: RTX Message Queue
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS-RTX/5.9.0/Template/Mutex.c
+          category: source
+          attr: template
+          version: 2.0.0
+          select: RTX Mutex
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS-RTX/5.9.0/Template/Semaphore.c
+          category: source
+          attr: template
+          version: 2.0.0
+          select: RTX Semaphore
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS-RTX/5.9.0/Template/Thread.c
+          category: source
+          attr: template
+          version: 2.0.0
+          select: RTX Thread
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS-RTX/5.9.0/Template/Timer.c
+          category: source
+          attr: template
+          version: 2.0.1
+          select: RTX Timer
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS-RTX/5.9.0/Template/main.c
+          category: source
+          attr: template
+          version: 2.1.0
+          select: RTX 'main' function
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS-RTX/5.9.0/Template/svc_user.c
+          category: source
+          attr: template
+          version: 1.0.0
+          select: RTX SVC User Table
+        - file: RTE/CMSIS/RTX_Config.c
+          category: source
+          attr: config
+          version: 5.2.0
+        - file: RTE/CMSIS/RTX_Config.h
+          category: header
+          attr: config
+          version: 5.6.0
+    - component: Keil::CMSIS Driver:Ethernet MAC@3.1.0
+      condition: CMSIS Driver requirements
+      from-pack: ARM::CMSIS-Driver_STM32@1.2.0
+      selected-by: Keil::CMSIS Driver:Ethernet MAC
+      implements: CMSIS Driver:Ethernet MAC@2.2.0
+      files:
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS-Driver_STM32/1.2.0/Documentation/html/eth_mac_stm32.html
+          category: doc
+          version: 3.1.0
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS-Driver_STM32/1.2.0/Drivers/ETH_MAC_STM32.c
+          category: source
+          version: 3.1.0
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS-Driver_STM32/1.2.0/Drivers/ETH_MAC_STM32.h
+          category: header
+          version: 3.1.0
+    - component: Keil::CMSIS Driver:Ethernet PHY:LAN8742A@1.3.0
+      condition: Device CMSIS_Core
+      from-pack: ARM::CMSIS-Driver@2.10.0
+      selected-by: Keil::CMSIS Driver:Ethernet PHY:LAN8742A
+      implements: CMSIS Driver:Ethernet PHY@2.2.0
+      files:
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS-Driver/2.10.0/Ethernet_PHY/LAN8742A/PHY_LAN8742A.c
+          category: source
+          version: 1.3.0
+        - file: https://www.microchip.com/LAN8742A
+          category: doc
+          version: 1.3.0
+    - component: Keil::CMSIS Driver:GPIO@1.2.0
+      condition: CMSIS Driver requirements
+      from-pack: ARM::CMSIS-Driver_STM32@1.2.0
+      selected-by: Keil::CMSIS Driver:GPIO
+      implements: CMSIS Driver:GPIO@1.0.0
+      files:
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS-Driver_STM32/1.2.0/Documentation/html/gpio_stm32.html
+          category: doc
+          version: 1.2.0
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS-Driver_STM32/1.2.0/Drivers/GPIO_STM32.c
+          category: source
+          version: 1.2.0
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS-Driver_STM32/1.2.0/Drivers/GPIO_STM32.h
+          category: header
+          version: 1.2.0
+    - component: Keil::CMSIS Driver:USART@3.0.0
+      condition: CMSIS Driver requirements
+      from-pack: ARM::CMSIS-Driver_STM32@1.2.0
+      selected-by: Keil::CMSIS Driver:USART
+      implements: CMSIS Driver:USART@2.4.0
+      files:
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS-Driver_STM32/1.2.0/Documentation/html/usart_stm32.html
+          category: doc
+          version: 3.0.0
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS-Driver_STM32/1.2.0/Drivers/USART_STM32.c
+          category: source
+          version: 3.0.0
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS-Driver_STM32/1.2.0/Drivers/USART_STM32.h
+          category: header
+          version: 3.0.0
+    - component: Keil::Device:CubeMX@1.0.0
+      condition: STM32F7 CMSIS
+      from-pack: Keil::STM32F7xx_DFP@3.1.0
+      selected-by: Keil::Device:CubeMX
+      files:
+        - file: https://open-cmsis-pack.github.io/cmsis-toolbox/CubeMX
+          category: doc
+          version: 1.0.0
+      generator:
+        id: CubeMX
+        path: STM32CubeMX/Target_1/STM32F746G-DISCO-GUI_VNC-uvision.cgen.yml
+    - component: Keil::Network&MDK:CORE@8.0.0
+      condition: CMSIS Core with RTOS
+      from-pack: Keil::MDK-Middleware@8.0.0
+      selected-by: Keil::Network&MDK:CORE
+      files:
+        - file: ${CMSIS_PACK_ROOT}/Keil/MDK-Middleware/8.0.0/Components/Network/Include/rl_net.h
+          category: header
+          version: 8.0.0
+        - file: ${CMSIS_PACK_ROOT}/Keil/MDK-Middleware/8.0.0/Components/Network/Network.scvd
+          category: other
+          version: 8.0.0
+        - file: ${CMSIS_PACK_ROOT}/Keil/MDK-Middleware/8.0.0/Components/Network/Source/net_addr.c
+          category: source
+          version: 8.0.0
+        - file: ${CMSIS_PACK_ROOT}/Keil/MDK-Middleware/8.0.0/Components/Network/Source/net_arp.c
+          category: source
+          version: 8.0.0
+        - file: ${CMSIS_PACK_ROOT}/Keil/MDK-Middleware/8.0.0/Components/Network/Source/net_base64.c
+          category: source
+          version: 8.0.0
+        - file: ${CMSIS_PACK_ROOT}/Keil/MDK-Middleware/8.0.0/Components/Network/Source/net_common.c
+          category: source
+          version: 8.0.0
+        - file: ${CMSIS_PACK_ROOT}/Keil/MDK-Middleware/8.0.0/Components/Network/Source/net_config.c
+          category: source
+          version: 8.0.0
+        - file: ${CMSIS_PACK_ROOT}/Keil/MDK-Middleware/8.0.0/Components/Network/Source/net_debug.c
+          category: source
+          version: 8.0.0
+        - file: ${CMSIS_PACK_ROOT}/Keil/MDK-Middleware/8.0.0/Components/Network/Source/net_dhcp6_client.c
+          category: source
+          version: 8.0.0
+        - file: ${CMSIS_PACK_ROOT}/Keil/MDK-Middleware/8.0.0/Components/Network/Source/net_dhcp_client.c
+          category: source
+          version: 8.0.0
+        - file: ${CMSIS_PACK_ROOT}/Keil/MDK-Middleware/8.0.0/Components/Network/Source/net_icmp.c
+          category: source
+          version: 8.0.0
+        - file: ${CMSIS_PACK_ROOT}/Keil/MDK-Middleware/8.0.0/Components/Network/Source/net_icmp6.c
+          category: source
+          version: 8.0.0
+        - file: ${CMSIS_PACK_ROOT}/Keil/MDK-Middleware/8.0.0/Components/Network/Source/net_igmp.c
+          category: source
+          version: 8.0.0
+        - file: ${CMSIS_PACK_ROOT}/Keil/MDK-Middleware/8.0.0/Components/Network/Source/net_ip4.c
+          category: source
+          version: 8.0.0
+        - file: ${CMSIS_PACK_ROOT}/Keil/MDK-Middleware/8.0.0/Components/Network/Source/net_ip4_frag.c
+          category: source
+          version: 8.0.0
+        - file: ${CMSIS_PACK_ROOT}/Keil/MDK-Middleware/8.0.0/Components/Network/Source/net_ip6.c
+          category: source
+          version: 8.0.0
+        - file: ${CMSIS_PACK_ROOT}/Keil/MDK-Middleware/8.0.0/Components/Network/Source/net_ip6_frag.c
+          category: source
+          version: 8.0.0
+        - file: ${CMSIS_PACK_ROOT}/Keil/MDK-Middleware/8.0.0/Components/Network/Source/net_loopback.c
+          category: source
+          version: 8.0.0
+        - file: ${CMSIS_PACK_ROOT}/Keil/MDK-Middleware/8.0.0/Components/Network/Source/net_md5.c
+          category: source
+          version: 8.0.0
+        - file: ${CMSIS_PACK_ROOT}/Keil/MDK-Middleware/8.0.0/Components/Network/Source/net_mem.c
+          category: source
+          version: 8.0.0
+        - file: ${CMSIS_PACK_ROOT}/Keil/MDK-Middleware/8.0.0/Components/Network/Source/net_mld.c
+          category: source
+          version: 8.0.0
+        - file: ${CMSIS_PACK_ROOT}/Keil/MDK-Middleware/8.0.0/Components/Network/Source/net_nbns_client.c
+          category: source
+          version: 8.0.0
+        - file: ${CMSIS_PACK_ROOT}/Keil/MDK-Middleware/8.0.0/Components/Network/Source/net_ndp.c
+          category: source
+          version: 8.0.0
+        - file: ${CMSIS_PACK_ROOT}/Keil/MDK-Middleware/8.0.0/Components/Network/Source/net_ping_core.c
+          category: source
+          version: 8.0.0
+        - file: ${CMSIS_PACK_ROOT}/Keil/MDK-Middleware/8.0.0/Components/Network/Source/net_sys.c
+          category: source
+          version: 8.0.0
+        - file: ${CMSIS_PACK_ROOT}/Keil/MDK-Middleware/8.0.0/Components/Network/Source/net_version.c
+          category: source
+          version: 8.0.0
+        - file: RTE/Network/Net_Config.h
+          category: header
+          attr: config
+          version: 8.0.0
+        - file: RTE/Network/Net_Debug.h
+          category: header
+          attr: config
+          version: 8.0.0
+    - component: Keil::Network&MDK:Interface:ETH@8.0.0
+      condition: Network Driver ETH
+      from-pack: Keil::MDK-Middleware@8.0.0
+      selected-by: Keil::Network&MDK:Interface:ETH
+      files:
+        - file: ${CMSIS_PACK_ROOT}/Keil/MDK-Middleware/8.0.0/Components/Network/Source/net_eth.c
+          category: source
+          version: 8.0.0
+        - file: ${CMSIS_PACK_ROOT}/Keil/MDK-Middleware/8.0.0/Documentation/html/Network/group__netETH__Func.html
+          category: doc
+          version: 8.0.0
+        - file: RTE/Network/Net_Config_ETH_0.h
+          category: header
+          attr: config
+          version: 7.5.0
+    - component: Keil::Network&MDK:Socket:BSD@8.0.0
+      condition: Network UDP/TCP
+      from-pack: Keil::MDK-Middleware@8.0.0
+      selected-by: Keil::Network&MDK:Socket:BSD
+      files:
+        - file: ${CMSIS_PACK_ROOT}/Keil/MDK-Middleware/8.0.0/Components/Network/Source/net_bsd.c
+          category: source
+          version: 8.0.0
+        - file: ${CMSIS_PACK_ROOT}/Keil/MDK-Middleware/8.0.0/Documentation/html/Network/group__netBSD__Func.html
+          category: doc
+          version: 8.0.0
+        - file: RTE/Network/Net_Config_BSD.h
+          category: header
+          attr: config
+          version: 5.0.1
+    - component: Keil::Network&MDK:Socket:TCP@8.0.0
+      condition: Network Interface
+      from-pack: Keil::MDK-Middleware@8.0.0
+      selected-by: Keil::Network&MDK:Socket:TCP
+      files:
+        - file: ${CMSIS_PACK_ROOT}/Keil/MDK-Middleware/8.0.0/Components/Network/Source/net_tcp.c
+          category: source
+          version: 8.0.0
+        - file: ${CMSIS_PACK_ROOT}/Keil/MDK-Middleware/8.0.0/Components/Network/Template/TCP_Socket_Client.c
+          category: source
+          attr: template
+          version: 8.0.0
+          select: TCP Socket Client
+        - file: ${CMSIS_PACK_ROOT}/Keil/MDK-Middleware/8.0.0/Components/Network/Template/TCP_Socket_Server.c
+          category: source
+          attr: template
+          version: 8.0.0
+          select: TCP Socket Server
+        - file: ${CMSIS_PACK_ROOT}/Keil/MDK-Middleware/8.0.0/Documentation/html/Network/group__netTCP__Func.html
+          category: doc
+          version: 8.0.0
+        - file: RTE/Network/Net_Config_TCP.h
+          category: header
+          attr: config
+          version: 7.1.2
+    - component: Keil::Network&MDK:Socket:UDP@8.0.0
+      condition: Network Interface
+      from-pack: Keil::MDK-Middleware@8.0.0
+      selected-by: Keil::Network&MDK:Socket:UDP
+      files:
+        - file: ${CMSIS_PACK_ROOT}/Keil/MDK-Middleware/8.0.0/Components/Network/Source/net_udp.c
+          category: source
+          version: 8.0.0
+        - file: ${CMSIS_PACK_ROOT}/Keil/MDK-Middleware/8.0.0/Components/Network/Template/UDP_Socket.c
+          category: source
+          attr: template
+          version: 8.0.0
+          select: UDP Socket
+        - file: ${CMSIS_PACK_ROOT}/Keil/MDK-Middleware/8.0.0/Documentation/html/Network/group__netUDP__Func.html
+          category: doc
+          version: 8.0.0
+        - file: RTE/Network/Net_Config_UDP.h
+          category: header
+          attr: config
+          version: 5.1.1
+    - component: Segger::Graphics&MDK-Pro:CORE@6.32.3
+      condition: CMSIS Core with RTOS and Display
+      from-pack: Keil::MDK-Middleware_Graphics@1.3.1
+      selected-by: Segger::Graphics&MDK-Pro:CORE
+      files:
+        - file: ${CMSIS_PACK_ROOT}/Keil/MDK-Middleware_Graphics/1.3.1/emWin/Include/GUI.h
+          category: header
+          version: 6.32.3
+        - file: ${CMSIS_PACK_ROOT}/Keil/MDK-Middleware_Graphics/1.3.1/emWin/Lib/ARM/GUI_CM4F_L.lib
+          category: library
+          version: 6.32.3
+        - file: ${CMSIS_PACK_ROOT}/Keil/MDK-Middleware_Graphics/1.3.1/emWin/Sample/GUI_X/GUI_X_RTE.c
+          category: source
+          version: 6.32.3
+        - file: ${CMSIS_PACK_ROOT}/Keil/MDK-Middleware_Graphics/1.3.1/emWin/Sample/Template/RTOS2/GUI_MultiThread.c
+          category: source
+          attr: template
+          version: 6.32.3
+          select: emWin GUI Thread for Multi-Tasking Execution Model
+        - file: ${CMSIS_PACK_ROOT}/Keil/MDK-Middleware_Graphics/1.3.1/emWin/Sample/Template/RTOS2/GUI_SingleThread.c
+          category: source
+          attr: template
+          version: 6.32.3
+          select: emWin GUI Thread for Single-Tasking Execution Model
+        - file: ${CMSIS_PACK_ROOT}/Keil/MDK-Middleware_Graphics/1.3.1/emWin/Sample/Template/RTOS2/GUI_TemplateThread.c
+          category: source
+          attr: template
+          version: 6.32.3
+          select: emWin thread function for Demos and Templates
+        - file: RTE/Graphics/GUIConf.c
+          category: source
+          attr: config
+          version: 5.0.0
+    - component: Segger::Graphics&MDK-Pro:Display:Interface Template@6.32.3
+      condition: Graphics Core
+      from-pack: Keil::MDK-Middleware_Graphics@1.3.1
+      selected-by: Segger::Graphics&MDK-Pro:Display:Interface Template
+      files:
+        - file: RTE/Graphics/LCDConf.c
+          category: source
+          attr: config
+          version: 5.0.0
+    - component: Segger::Graphics&MDK-Pro:Input Device:Touchscreen@6.32.3
+      condition: Graphics Core and Touchscreen
+      from-pack: Keil::MDK-Middleware_Graphics@1.3.1
+      selected-by: Segger::Graphics&MDK-Pro:Input Device:Touchscreen
+      files:
+        - file: ${CMSIS_PACK_ROOT}/Keil/MDK-Middleware_Graphics/1.3.1/emWin/Sample/GUI_X/GUI_X_Touch.c
+          category: source
+          version: 6.32.3
+    - component: Segger::Graphics&MDK-Pro:Tools:GUI Builder@6.32.3
+      condition: Graphics Core
+      from-pack: Keil::MDK-Middleware_Graphics@1.3.1
+      selected-by: Segger::Graphics&MDK-Pro:Tools:GUI Builder
+      files:
+        - file: ${CMSIS_PACK_ROOT}/Keil/MDK-Middleware_Graphics/1.3.1/emWin/Tool/GUIBuilder.exe
+          category: other
+          attr: copy
+          version: 6.32.3
+        - file: ${CMSIS_PACK_ROOT}/Keil/MDK-Middleware_Graphics/1.3.1/emWin/Tool/GUIBuilder.ini
+          category: other
+          attr: copy
+          version: 6.32.3
+        - file: RTE/Graphics/GUIBuilder.txt
+          category: doc
+          attr: config
+          version: 1.0.0
+    - component: Segger::Graphics&MDK-Pro:VNC Server@6.32.3
+      condition: Graphics Core with CMSIS RTOS and BSD Socket
+      from-pack: Keil::MDK-Middleware_Graphics@1.3.1
+      selected-by: Segger::Graphics&MDK-Pro:VNC Server
+      files:
+        - file: RTE/Graphics/GUI_VNC_X_StartServerRTE.c
+          category: source
+          attr: config
+          version: 1.0.0
+  apis:
+    - api: CMSIS Driver:Ethernet MAC@2.2.0
+      from-pack: ARM::CMSIS@6.2.0
+      implemented-by: Keil::CMSIS Driver:Ethernet MAC@3.1.0
+      files:
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/6.2.0/CMSIS/Documentation/html/Driver/group__eth__mac__interface__gr.html
+          category: doc
+          version: 2.2.0
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/6.2.0/CMSIS/Driver/Include/Driver_ETH_MAC.h
+          category: header
+          version: 2.2.0
+    - api: CMSIS Driver:Ethernet PHY@2.2.0
+      from-pack: ARM::CMSIS@6.2.0
+      implemented-by: Keil::CMSIS Driver:Ethernet PHY:LAN8742A@1.3.0
+      files:
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/6.2.0/CMSIS/Documentation/html/Driver/group__eth__phy__interface__gr.html
+          category: doc
+          version: 2.2.0
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/6.2.0/CMSIS/Driver/Include/Driver_ETH_PHY.h
+          category: header
+          version: 2.2.0
+    - api: CMSIS Driver:GPIO@1.0.0
+      from-pack: ARM::CMSIS@6.2.0
+      implemented-by: Keil::CMSIS Driver:GPIO@1.2.0
+      files:
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/6.2.0/CMSIS/Documentation/html/Driver/group__gpio__interface__gr.html
+          category: doc
+          version: 1.0.0
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/6.2.0/CMSIS/Driver/Include/Driver_GPIO.h
+          category: header
+          version: 1.0.0
+    - api: CMSIS Driver:USART@2.4.0
+      from-pack: ARM::CMSIS@6.2.0
+      implemented-by: Keil::CMSIS Driver:USART@3.0.0
+      files:
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/6.2.0/CMSIS/Documentation/html/Driver/group__usart__interface__gr.html
+          category: doc
+          version: 2.4.0
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/6.2.0/CMSIS/Driver/Include/Driver_USART.h
+          category: header
+          version: 2.4.0
+    - api: CMSIS Driver:VIO@1.0.0
+      from-pack: ARM::CMSIS@6.2.0
+      implemented-by: ARM::CMSIS Driver:VIO:Custom@1.0.0
+      files:
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/6.2.0/CMSIS/Documentation/html/Driver/group__vio__interface__gr.html
+          category: doc
+          version: 1.0.0
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/6.2.0/CMSIS/Driver/VIO/Include/cmsis_vio.h
+          category: header
+          version: 1.0.0
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/6.2.0/CMSIS/Driver/VIO/cmsis_vio.scvd
+          category: other
+          version: 1.0.0
+    - api: CMSIS-Compiler:STDERR@1.1.0
+      condition: CortexDevice
+      from-pack: ARM::CMSIS-Compiler@2.1.0
+      implemented-by: ARM::CMSIS-Compiler:STDERR:Custom@1.1.0
+      files:
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS-Compiler/2.1.0/include/retarget_stderr.h
+          category: header
+          version: 1.1.0
+    - api: CMSIS-Compiler:STDIN@1.1.0
+      condition: CortexDevice
+      from-pack: ARM::CMSIS-Compiler@2.1.0
+      implemented-by: ARM::CMSIS-Compiler:STDIN:Custom@1.1.0
+      files:
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS-Compiler/2.1.0/include/retarget_stdin.h
+          category: header
+          version: 1.1.0
+    - api: CMSIS-Compiler:STDOUT@1.1.0
+      condition: CortexDevice
+      from-pack: ARM::CMSIS-Compiler@2.1.0
+      implemented-by: ARM::CMSIS-Compiler:STDOUT:Custom@1.1.0
+      files:
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS-Compiler/2.1.0/include/retarget_stdout.h
+          category: header
+          version: 1.1.0
+    - api: CMSIS:OS Tick@1.0.1
+      from-pack: ARM::CMSIS@6.2.0
+      implemented-by: ARM::CMSIS:OS Tick:SysTick@1.0.5
+      files:
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/6.2.0/CMSIS/RTOS2/Include/os_tick.h
+          category: header
+          version: 1.0.1
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/6.2.0/CMSIS/Documentation/html/RTOS2/group__CMSIS__RTOS__TickAPI.html
+          category: doc
+          version: 1.0.1
+    - api: CMSIS:RTOS2@2.3.0
+      from-pack: ARM::CMSIS@6.2.0
+      implemented-by: ARM::CMSIS:RTOS2:Keil RTX5&Source@5.9.0
+      files:
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/6.2.0/CMSIS/Documentation/html/RTOS2/group__CMSIS__RTOS.html
+          category: doc
+          version: 2.3.0
+        - file: ${CMSIS_PACK_ROOT}/ARM/CMSIS/6.2.0/CMSIS/RTOS2/Include/cmsis_os2.h
+          category: header
+          version: 2.3.0
+  linker:
+    script: STM32F746G-DISCO-GUI_VNC-uvision_Target_1.sct
+  groups:
+    - group: Source Group 1
+      files:
+        - file: Blinky.c
+          category: sourceC
+        - file: retarget_stdio.c
+          category: sourceC
+          misc:
+            CPP:
+              - -xc++
+          define:
+            - RETARGET_STDIO_UART: 1
+        - file: vio.c
+          category: sourceC
+        - file: GUI_SingleThread.c
+          category: sourceC
+        - file: FramewinDLG.c
+          category: sourceC
+        - file: LCD_X.c
+          category: sourceC
+        - file: Touch_746G_Discovery.c
+          category: sourceC
+        - file: stm32746g_discovery_ts.c
+          category: sourceC
+        - file: ft5336.c
+          category: sourceC
+        - file: stm32746g_discovery.c
+          category: sourceC
+    - group: CubeMX
+      files:
+        - file: STM32CubeMX/Target_1/STM32CubeMX/Src/main.c
+          category: sourceC
+        - file: STM32CubeMX/Target_1/STM32CubeMX/Src/stm32f7xx_it.c
+          category: sourceC
+        - file: STM32CubeMX/Target_1/STM32CubeMX/Src/stm32f7xx_hal_msp.c
+          category: sourceC
+        - file: STM32CubeMX/Target_1/STM32CubeMX/Src/stm32f7xx_hal_timebase_tim.c
+          category: sourceC
+        - file: STM32CubeMX/Target_1/STM32CubeMX/MDK-ARM/startup_stm32f746xx.s
+          category: sourceAsm
+        - file: STM32CubeMX/Target_1/STM32CubeMX/Src/system_stm32f7xx.c
+          category: sourceC
+    - group: STM32 HAL Driver
+      files:
+        - file: STM32CubeMX/Target_1/STM32CubeMX/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_tim.c
+          category: sourceC
+        - file: STM32CubeMX/Target_1/STM32CubeMX/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_tim_ex.c
+          category: sourceC
+        - file: STM32CubeMX/Target_1/STM32CubeMX/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_adc.c
+          category: sourceC
+        - file: STM32CubeMX/Target_1/STM32CubeMX/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_adc_ex.c
+          category: sourceC
+        - file: STM32CubeMX/Target_1/STM32CubeMX/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_rcc.c
+          category: sourceC
+        - file: STM32CubeMX/Target_1/STM32CubeMX/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_rcc_ex.c
+          category: sourceC
+        - file: STM32CubeMX/Target_1/STM32CubeMX/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_flash.c
+          category: sourceC
+        - file: STM32CubeMX/Target_1/STM32CubeMX/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_flash_ex.c
+          category: sourceC
+        - file: STM32CubeMX/Target_1/STM32CubeMX/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_gpio.c
+          category: sourceC
+        - file: STM32CubeMX/Target_1/STM32CubeMX/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dma.c
+          category: sourceC
+        - file: STM32CubeMX/Target_1/STM32CubeMX/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dma_ex.c
+          category: sourceC
+        - file: STM32CubeMX/Target_1/STM32CubeMX/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_pwr.c
+          category: sourceC
+        - file: STM32CubeMX/Target_1/STM32CubeMX/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_pwr_ex.c
+          category: sourceC
+        - file: STM32CubeMX/Target_1/STM32CubeMX/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_cortex.c
+          category: sourceC
+        - file: STM32CubeMX/Target_1/STM32CubeMX/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal.c
+          category: sourceC
+        - file: STM32CubeMX/Target_1/STM32CubeMX/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_i2c.c
+          category: sourceC
+        - file: STM32CubeMX/Target_1/STM32CubeMX/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_i2c_ex.c
+          category: sourceC
+        - file: STM32CubeMX/Target_1/STM32CubeMX/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_exti.c
+          category: sourceC
+        - file: STM32CubeMX/Target_1/STM32CubeMX/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_crc.c
+          category: sourceC
+        - file: STM32CubeMX/Target_1/STM32CubeMX/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_crc_ex.c
+          category: sourceC
+        - file: STM32CubeMX/Target_1/STM32CubeMX/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dcmi.c
+          category: sourceC
+        - file: STM32CubeMX/Target_1/STM32CubeMX/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dcmi_ex.c
+          category: sourceC
+        - file: STM32CubeMX/Target_1/STM32CubeMX/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dma2d.c
+          category: sourceC
+        - file: STM32CubeMX/Target_1/STM32CubeMX/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_eth.c
+          category: sourceC
+        - file: STM32CubeMX/Target_1/STM32CubeMX/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_fmc.c
+          category: sourceC
+        - file: STM32CubeMX/Target_1/STM32CubeMX/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_nor.c
+          category: sourceC
+        - file: STM32CubeMX/Target_1/STM32CubeMX/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_sram.c
+          category: sourceC
+        - file: STM32CubeMX/Target_1/STM32CubeMX/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_nand.c
+          category: sourceC
+        - file: STM32CubeMX/Target_1/STM32CubeMX/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_sdram.c
+          category: sourceC
+        - file: STM32CubeMX/Target_1/STM32CubeMX/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_ltdc.c
+          category: sourceC
+        - file: STM32CubeMX/Target_1/STM32CubeMX/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_ltdc_ex.c
+          category: sourceC
+        - file: STM32CubeMX/Target_1/STM32CubeMX/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_dsi.c
+          category: sourceC
+        - file: STM32CubeMX/Target_1/STM32CubeMX/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_qspi.c
+          category: sourceC
+        - file: STM32CubeMX/Target_1/STM32CubeMX/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_rtc.c
+          category: sourceC
+        - file: STM32CubeMX/Target_1/STM32CubeMX/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_rtc_ex.c
+          category: sourceC
+        - file: STM32CubeMX/Target_1/STM32CubeMX/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_sai.c
+          category: sourceC
+        - file: STM32CubeMX/Target_1/STM32CubeMX/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_sai_ex.c
+          category: sourceC
+        - file: STM32CubeMX/Target_1/STM32CubeMX/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_sdmmc.c
+          category: sourceC
+        - file: STM32CubeMX/Target_1/STM32CubeMX/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_sd.c
+          category: sourceC
+        - file: STM32CubeMX/Target_1/STM32CubeMX/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_mmc.c
+          category: sourceC
+        - file: STM32CubeMX/Target_1/STM32CubeMX/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_spdifrx.c
+          category: sourceC
+        - file: STM32CubeMX/Target_1/STM32CubeMX/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_spi.c
+          category: sourceC
+        - file: STM32CubeMX/Target_1/STM32CubeMX/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_spi_ex.c
+          category: sourceC
+        - file: STM32CubeMX/Target_1/STM32CubeMX/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_uart.c
+          category: sourceC
+        - file: STM32CubeMX/Target_1/STM32CubeMX/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_uart_ex.c
+          category: sourceC
+        - file: STM32CubeMX/Target_1/STM32CubeMX/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_hcd.c
+          category: sourceC
+        - file: STM32CubeMX/Target_1/STM32CubeMX/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_usb.c
+          category: sourceC
+  constructed-files:
+    - file: RTE/_Target_1/RTE_Components.h
+      category: header
+  licenses:
+    - license: <proprietary> END USER LICENSE AGREEMENT FOR ARM SOFTWARE DEVELOPMENT TOOLS
+      license-agreement: ${CMSIS_PACK_ROOT}/Keil/MDK-Middleware/8.0.0/license_terms/license_agreement.txt
+      packs:
+        - pack: Keil::MDK-Middleware@8.0.0
+      components:
+        - component: Keil::Network&MDK:CORE@8.0.0
+        - component: Keil::Network&MDK:Interface:ETH@8.0.0
+        - component: Keil::Network&MDK:Socket:BSD@8.0.0
+        - component: Keil::Network&MDK:Socket:TCP@8.0.0
+        - component: Keil::Network&MDK:Socket:UDP@8.0.0
+    - license: <unknown>
+      license-agreement: ${CMSIS_PACK_ROOT}/Keil/MDK-Middleware_Graphics/1.3.1/license.rtf
+      packs:
+        - pack: Keil::MDK-Middleware_Graphics@1.3.1
+      components:
+        - component: Segger::Graphics&MDK-Pro:CORE@6.32.3
+        - component: Segger::Graphics&MDK-Pro:Display:Interface Template@6.32.3
+        - component: Segger::Graphics&MDK-Pro:Input Device:Touchscreen@6.32.3
+        - component: Segger::Graphics&MDK-Pro:Tools:GUI Builder@6.32.3
+        - component: Segger::Graphics&MDK-Pro:VNC Server@6.32.3
+    - license: Apache-2.0
+      packs:
+        - pack: ARM::CMSIS-Compiler@2.1.0
+        - pack: ARM::CMSIS-Driver@2.10.0
+        - pack: ARM::CMSIS-Driver_STM32@1.2.0
+        - pack: ARM::CMSIS-RTX@5.9.0
+        - pack: ARM::CMSIS@6.2.0
+        - pack: Keil::STM32F7xx_DFP@3.1.0
+      components:
+        - component: ARM::CMSIS Driver:VIO:Custom@1.0.0
+        - component: ARM::CMSIS-Compiler:CORE@1.1.0
+        - component: ARM::CMSIS-Compiler:STDERR:Custom@1.1.0
+        - component: ARM::CMSIS-Compiler:STDIN:Custom@1.1.0
+        - component: ARM::CMSIS-Compiler:STDOUT:Custom@1.1.0
+        - component: ARM::CMSIS:CORE@6.1.1
+        - component: ARM::CMSIS:OS Tick:SysTick@1.0.5
+        - component: ARM::CMSIS:RTOS2:Keil RTX5&Source@5.9.0
+        - component: CMSIS Driver:Ethernet MAC(API)
+        - component: CMSIS Driver:Ethernet PHY(API)
+        - component: CMSIS Driver:GPIO(API)
+        - component: CMSIS Driver:USART(API)
+        - component: CMSIS Driver:VIO(API)
+        - component: CMSIS-Compiler:STDERR(API)
+        - component: CMSIS-Compiler:STDIN(API)
+        - component: CMSIS-Compiler:STDOUT(API)
+        - component: CMSIS:OS Tick(API)
+        - component: CMSIS:RTOS2(API)
+        - component: Keil::CMSIS Driver:Ethernet MAC@3.1.0
+        - component: Keil::CMSIS Driver:Ethernet PHY:LAN8742A@1.3.0
+        - component: Keil::CMSIS Driver:GPIO@1.2.0
+        - component: Keil::CMSIS Driver:USART@3.0.0
+        - component: Keil::Device:CubeMX@1.0.0
+    - license: BSD-3-Clause
+      packs:
+        - pack: Keil::STM32F7xx_DFP@3.1.0
+      components:
+        - component: Keil::Device:CubeMX@1.0.0

@@ -1,0 +1,6 @@
+{
+    "debug.hideSlowPreLaunchWarning": true,
+    "clangd.arguments": [
+        "--compile-commands-dir=d:\\cursussen\\IoT-Systems\\voorbereiding\\20250801\\main\\out\\STM32F746G-DISCO-GUI_VNC-uvision\\Target_1"
+    ]
+}
