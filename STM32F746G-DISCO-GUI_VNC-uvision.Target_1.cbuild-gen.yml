@@ -9,7 +9,7 @@ build-gen:
     endian: little
     fpu: sp
   add-path:
-    - D:/cursussen/IoT-Systems/voorbereiding/STM32F746G-DISCO/STM32F746G-DISCO-GUI_VNC-uvision
+    - D:/cursussen/IoT-Systems/voorbereiding/20250801/main
   components:
     - component: ARM::CMSIS Driver:VIO:Custom@1.0.0
       from-pack: ARM::CMSIS@6.2.0
@@ -62,9 +62,9 @@ build-gen:
           category: sourceC
         - file: C:/Users/u0081767/AppData/Local/Arm/Packs/ARM/CMSIS-RTX/5.9.0/Source/rtx_timer.c
           category: sourceC
-        - file: D:/cursussen/IoT-Systems/voorbereiding/STM32F746G-DISCO/STM32F746G-DISCO-GUI_VNC-uvision/RTE/CMSIS/RTX_Config.c
+        - file: D:/cursussen/IoT-Systems/voorbereiding/20250801/main/RTE/CMSIS/RTX_Config.c
           category: sourceC
-        - file: D:/cursussen/IoT-Systems/voorbereiding/STM32F746G-DISCO/STM32F746G-DISCO-GUI_VNC-uvision/RTE/CMSIS/RTX_Config.h
+        - file: D:/cursussen/IoT-Systems/voorbereiding/20250801/main/RTE/CMSIS/RTX_Config.h
           category: header
     - component: Keil::CMSIS Driver:GPIO@1.2.0
       from-pack: ARM::CMSIS-Driver_STM32@1.2.0
@@ -85,12 +85,12 @@ build-gen:
           category: library
         - file: C:/Users/u0081767/AppData/Local/Arm/Packs/Keil/MDK-Middleware_Graphics/1.3.1/emWin/Sample/GUI_X/GUI_X_RTE.c
           category: sourceC
-        - file: D:/cursussen/IoT-Systems/voorbereiding/STM32F746G-DISCO/STM32F746G-DISCO-GUI_VNC-uvision/RTE/Graphics/GUIConf.c
+        - file: D:/cursussen/IoT-Systems/voorbereiding/20250801/main/RTE/Graphics/GUIConf.c
           category: sourceC
     - component: Segger::Graphics&MDK-Pro:Display:Interface Template@6.32.3
       from-pack: Keil::MDK-Middleware_Graphics@1.3.1
       files:
-        - file: D:/cursussen/IoT-Systems/voorbereiding/STM32F746G-DISCO/STM32F746G-DISCO-GUI_VNC-uvision/RTE/Graphics/LCDConf.c
+        - file: D:/cursussen/IoT-Systems/voorbereiding/20250801/main/RTE/Graphics/LCDConf.c
           category: sourceC
     - component: Segger::Graphics&MDK-Pro:Input Device:Touchscreen@6.32.3
       from-pack: Keil::MDK-Middleware_Graphics@1.3.1
@@ -100,7 +100,7 @@ build-gen:
     - component: Segger::Graphics&MDK-Pro:Tools:GUI Builder@6.32.3
       from-pack: Keil::MDK-Middleware_Graphics@1.3.1
       files:
-        - file: D:/cursussen/IoT-Systems/voorbereiding/STM32F746G-DISCO/STM32F746G-DISCO-GUI_VNC-uvision/RTE/Graphics/GUIBuilder.txt
+        - file: D:/cursussen/IoT-Systems/voorbereiding/20250801/main/RTE/Graphics/GUIBuilder.txt
           category: doc
   apis:
     - api: CMSIS Driver:GPIO(API)@1.0.0
@@ -122,23 +122,23 @@ build-gen:
   groups:
     - group: Source Group 1
       files:
-        - file: D:/cursussen/IoT-Systems/voorbereiding/STM32F746G-DISCO/STM32F746G-DISCO-GUI_VNC-uvision/Blinky.c
+        - file: D:/cursussen/IoT-Systems/voorbereiding/20250801/main/Blinky.c
           category: sourceC
-        - file: D:/cursussen/IoT-Systems/voorbereiding/STM32F746G-DISCO/STM32F746G-DISCO-GUI_VNC-uvision/retarget_stdio.c
+        - file: D:/cursussen/IoT-Systems/voorbereiding/20250801/main/retarget_stdio.c
           category: sourceC
-        - file: D:/cursussen/IoT-Systems/voorbereiding/STM32F746G-DISCO/STM32F746G-DISCO-GUI_VNC-uvision/vio.c
+        - file: D:/cursussen/IoT-Systems/voorbereiding/20250801/main/vio.c
           category: sourceC
-        - file: D:/cursussen/IoT-Systems/voorbereiding/STM32F746G-DISCO/STM32F746G-DISCO-GUI_VNC-uvision/GUI_SingleThread.c
+        - file: D:/cursussen/IoT-Systems/voorbereiding/20250801/main/GUI_SingleThread.c
           category: sourceC
-        - file: D:/cursussen/IoT-Systems/voorbereiding/STM32F746G-DISCO/STM32F746G-DISCO-GUI_VNC-uvision/FramewinDLG.c
+        - file: D:/cursussen/IoT-Systems/voorbereiding/20250801/main/FramewinDLG.c
           category: sourceC
-        - file: D:/cursussen/IoT-Systems/voorbereiding/STM32F746G-DISCO/STM32F746G-DISCO-GUI_VNC-uvision/LCD_X.c
+        - file: D:/cursussen/IoT-Systems/voorbereiding/20250801/main/LCD_X.c
           category: sourceC
-        - file: D:/cursussen/IoT-Systems/voorbereiding/STM32F746G-DISCO/STM32F746G-DISCO-GUI_VNC-uvision/Touch_746G_Discovery.c
+        - file: D:/cursussen/IoT-Systems/voorbereiding/20250801/main/Touch_746G_Discovery.c
           category: sourceC
-        - file: D:/cursussen/IoT-Systems/voorbereiding/STM32F746G-DISCO/STM32F746G-DISCO-GUI_VNC-uvision/stm32746g_discovery_ts.c
+        - file: D:/cursussen/IoT-Systems/voorbereiding/20250801/main/stm32746g_discovery_ts.c
           category: sourceC
-        - file: D:/cursussen/IoT-Systems/voorbereiding/STM32F746G-DISCO/STM32F746G-DISCO-GUI_VNC-uvision/ft5336.c
+        - file: D:/cursussen/IoT-Systems/voorbereiding/20250801/main/ft5336.c
           category: sourceC
-        - file: D:/cursussen/IoT-Systems/voorbereiding/STM32F746G-DISCO/STM32F746G-DISCO-GUI_VNC-uvision/stm32746g_discovery.c
+        - file: D:/cursussen/IoT-Systems/voorbereiding/20250801/main/stm32746g_discovery.c
           category: sourceC
