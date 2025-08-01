@@ -55,6 +55,7 @@
 /* USER CODE END 0 */
 
 /* External variables --------------------------------------------------------*/
+extern ETH_HandleTypeDef heth;
 extern SDRAM_HandleTypeDef hsdram1;
 extern TIM_HandleTypeDef htim8;
 extern UART_HandleTypeDef huart1;
@@ -204,6 +205,20 @@ void FMC_IRQHandler(void)
   /* USER CODE BEGIN FMC_IRQn 1 */
 
   /* USER CODE END FMC_IRQn 1 */
+}
+
+/**
+  * @brief This function handles Ethernet global interrupt.
+  */
+void ETH_IRQHandler(void)
+{
+  /* USER CODE BEGIN ETH_IRQn 0 */
+
+  /* USER CODE END ETH_IRQn 0 */
+  HAL_ETH_IRQHandler(&heth);
+  /* USER CODE BEGIN ETH_IRQn 1 */
+
+  /* USER CODE END ETH_IRQn 1 */
 }
 
 /**

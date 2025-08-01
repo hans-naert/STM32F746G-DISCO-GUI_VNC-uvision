@@ -10,6 +10,8 @@
 #define ID_CHECKBOX_0     (GUI_ID_USER + 0x02)
 #define ID_TEXT_0     (GUI_ID_USER + 0x03)
 
+extern int  GUI_VNC_X_StartServer(int, int);
+
 /*----------------------------------------------------------------------------
  *      GUIThread: GUI Thread for Single-Task Execution Model
  *---------------------------------------------------------------------------*/
@@ -41,6 +43,8 @@ __NO_RETURN static void GUIThread (void *argument) {
   (void)argument;
 
   GUI_Init();           /* Initialize the Graphics Component */
+	
+	GUI_VNC_X_StartServer(0,0);
 
   /* Add GUI setup code here */
 	WM_HWIN hWin = CreateFramewin();

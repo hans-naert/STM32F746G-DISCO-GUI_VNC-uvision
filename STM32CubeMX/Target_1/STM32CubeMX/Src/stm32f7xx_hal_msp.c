@@ -348,7 +348,7 @@ void HAL_DMA2D_MspInit(DMA2D_HandleTypeDef* hdma2d)
     /* Peripheral clock enable */
     __HAL_RCC_DMA2D_CLK_ENABLE();
     /* DMA2D interrupt Init */
-    HAL_NVIC_SetPriority(DMA2D_IRQn, 0, 0);
+    HAL_NVIC_SetPriority(DMA2D_IRQn, 8, 0);
     /* USER CODE BEGIN DMA2D_MspInit 1 */
 
     /* USER CODE END DMA2D_MspInit 1 */
@@ -434,6 +434,9 @@ void HAL_ETH_MspInit(ETH_HandleTypeDef* heth)
     GPIO_InitStruct.Alternate = GPIO_AF11_ETH;
     HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
+    /* ETH interrupt Init */
+    HAL_NVIC_SetPriority(ETH_IRQn, 8, 0);
+    HAL_NVIC_EnableIRQ(ETH_IRQn);
     /* USER CODE BEGIN ETH_MspInit 1 */
 
     /* USER CODE END ETH_MspInit 1 */
@@ -475,6 +478,8 @@ void HAL_ETH_MspDeInit(ETH_HandleTypeDef* heth)
 
     HAL_GPIO_DeInit(GPIOA, RMII_REF_CLK_Pin|RMII_MDIO_Pin|RMII_CRS_DV_Pin);
 
+    /* ETH interrupt DeInit */
+    HAL_NVIC_DisableIRQ(ETH_IRQn);
     /* USER CODE BEGIN ETH_MspDeInit 1 */
 
     /* USER CODE END ETH_MspDeInit 1 */
@@ -704,7 +709,7 @@ void HAL_LTDC_MspInit(LTDC_HandleTypeDef* hltdc)
     HAL_GPIO_Init(GPIOI, &GPIO_InitStruct);
 
     /* LTDC interrupt Init */
-    HAL_NVIC_SetPriority(LTDC_IRQn, 0, 0);
+    HAL_NVIC_SetPriority(LTDC_IRQn, 8, 0);
     /* USER CODE BEGIN LTDC_MspInit 1 */
 
     /* USER CODE END LTDC_MspInit 1 */
@@ -1523,7 +1528,7 @@ void HAL_UART_MspInit(UART_HandleTypeDef* huart)
     HAL_GPIO_Init(VCP_TX_GPIO_Port, &GPIO_InitStruct);
 
     /* USART1 interrupt Init */
-    HAL_NVIC_SetPriority(USART1_IRQn, 0, 0);
+    HAL_NVIC_SetPriority(USART1_IRQn, 8, 0);
     HAL_NVIC_EnableIRQ(USART1_IRQn);
     /* USER CODE BEGIN USART1_MspInit 1 */
 
@@ -1648,7 +1653,7 @@ void HAL_HCD_MspInit(HCD_HandleTypeDef* hhcd)
     /* Peripheral clock enable */
     __HAL_RCC_USB_OTG_FS_CLK_ENABLE();
     /* USB_OTG_FS interrupt Init */
-    HAL_NVIC_SetPriority(OTG_FS_IRQn, 0, 0);
+    HAL_NVIC_SetPriority(OTG_FS_IRQn, 8, 0);
     HAL_NVIC_EnableIRQ(OTG_FS_IRQn);
     /* USER CODE BEGIN USB_OTG_FS_MspInit 1 */
 
@@ -1794,7 +1799,7 @@ static void HAL_FMC_MspInit(void){
   HAL_GPIO_Init(FMC_SDCKE0_GPIO_Port, &GPIO_InitStruct);
 
   /* Peripheral interrupt init */
-  HAL_NVIC_SetPriority(FMC_IRQn, 0, 0);
+  HAL_NVIC_SetPriority(FMC_IRQn, 8, 0);
   HAL_NVIC_EnableIRQ(FMC_IRQn);
   /* USER CODE BEGIN FMC_MspInit 1 */
 

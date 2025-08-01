@@ -171,6 +171,11 @@
         <Type>ARM::CMSIS@6.2.0</Type>
         <SubType>1</SubType>
       </ScvdPack>
+      <ScvdPack>
+        <Filename>C:\Users\u0081767\AppData\Local\Arm\Packs\Keil\MDK-Middleware\8.0.0\Components\Network\Network.scvd</Filename>
+        <Type>Keil::MDK-Middleware@8.0.0</Type>
+        <SubType>1</SubType>
+      </ScvdPack>
       <Tracepoint>
         <THDelay>0</THDelay>
       </Tracepoint>
@@ -1047,6 +1052,14 @@
 
   <Group>
     <GroupName>::Graphics</GroupName>
+    <tvExp>1</tvExp>
+    <tvExpOptDlg>0</tvExpOptDlg>
+    <cbSel>0</cbSel>
+    <RteFlg>1</RteFlg>
+  </Group>
+
+  <Group>
+    <GroupName>::Network</GroupName>
     <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>

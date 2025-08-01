@@ -1679,36 +1679,14 @@ void HAL_SAI_IRQHandler(SAI_HandleTypeDef *hsai)
           hsai->hdmatx->XferAbortCallback = SAI_DMAAbort;
 
           /* Abort DMA in IT mode */
-          if (HAL_DMA_Abort_IT(hsai->hdmatx) != HAL_OK)
-          {
-            /* Update SAI error code */
-            hsai->ErrorCode |= HAL_SAI_ERROR_DMA;
-
-            /* Call SAI error callback */
-#if (USE_HAL_SAI_REGISTER_CALLBACKS == 1)
-            hsai->ErrorCallback(hsai);
-#else
-            HAL_SAI_ErrorCallback(hsai);
-#endif /* USE_HAL_SAI_REGISTER_CALLBACKS */
-          }
+          HAL_DMA_Abort_IT(hsai->hdmatx);
         }
         else if (hsai->hdmarx != NULL)
         {
           /* Set the DMA Rx abort callback */
           hsai->hdmarx->XferAbortCallback = SAI_DMAAbort;
           /* Abort DMA in IT mode */
-          if (HAL_DMA_Abort_IT(hsai->hdmarx) != HAL_OK)
-          {
-            /* Update SAI error code */
-            hsai->ErrorCode |= HAL_SAI_ERROR_DMA;
-
-            /* Call SAI error callback */
-#if (USE_HAL_SAI_REGISTER_CALLBACKS == 1)
-            hsai->ErrorCallback(hsai);
-#else
-            HAL_SAI_ErrorCallback(hsai);
-#endif /* USE_HAL_SAI_REGISTER_CALLBACKS */
-          }
+          HAL_DMA_Abort_IT(hsai->hdmarx);
         }
       }
       else
@@ -1742,36 +1720,14 @@ void HAL_SAI_IRQHandler(SAI_HandleTypeDef *hsai)
           /* Set the DMA Tx abort callback */
           hsai->hdmatx->XferAbortCallback = SAI_DMAAbort;
           /* Abort DMA in IT mode */
-          if (HAL_DMA_Abort_IT(hsai->hdmatx) != HAL_OK)
-          {
-            /* Update SAI error code */
-            hsai->ErrorCode |= HAL_SAI_ERROR_DMA;
-
-            /* Call SAI error callback */
-#if (USE_HAL_SAI_REGISTER_CALLBACKS == 1)
-            hsai->ErrorCallback(hsai);
-#else
-            HAL_SAI_ErrorCallback(hsai);
-#endif /* USE_HAL_SAI_REGISTER_CALLBACKS */
-          }
+          HAL_DMA_Abort_IT(hsai->hdmatx);
         }
         else if (hsai->hdmarx != NULL)
         {
           /* Set the DMA Rx abort callback */
           hsai->hdmarx->XferAbortCallback = SAI_DMAAbort;
           /* Abort DMA in IT mode */
-          if (HAL_DMA_Abort_IT(hsai->hdmarx) != HAL_OK)
-          {
-            /* Update SAI error code */
-            hsai->ErrorCode |= HAL_SAI_ERROR_DMA;
-
-            /* Call SAI error callback */
-#if (USE_HAL_SAI_REGISTER_CALLBACKS == 1)
-            hsai->ErrorCallback(hsai);
-#else
-            HAL_SAI_ErrorCallback(hsai);
-#endif /* USE_HAL_SAI_REGISTER_CALLBACKS */
-          }
+          HAL_DMA_Abort_IT(hsai->hdmarx);
         }
       }
       else
@@ -1802,36 +1758,14 @@ void HAL_SAI_IRQHandler(SAI_HandleTypeDef *hsai)
         /* Set the DMA Tx abort callback */
         hsai->hdmatx->XferAbortCallback = SAI_DMAAbort;
         /* Abort DMA in IT mode */
-          if (HAL_DMA_Abort_IT(hsai->hdmatx) != HAL_OK)
-          {
-            /* Update SAI error code */
-            hsai->ErrorCode |= HAL_SAI_ERROR_DMA;
-
-            /* Call SAI error callback */
-#if (USE_HAL_SAI_REGISTER_CALLBACKS == 1)
-            hsai->ErrorCallback(hsai);
-#else
-            HAL_SAI_ErrorCallback(hsai);
-#endif /* USE_HAL_SAI_REGISTER_CALLBACKS */
-          }
+        HAL_DMA_Abort_IT(hsai->hdmatx);
       }
       else if (hsai->hdmarx != NULL)
       {
         /* Set the DMA Rx abort callback */
         hsai->hdmarx->XferAbortCallback = SAI_DMAAbort;
         /* Abort DMA in IT mode */
-          if (HAL_DMA_Abort_IT(hsai->hdmarx) != HAL_OK)
-          {
-            /* Update SAI error code */
-            hsai->ErrorCode |= HAL_SAI_ERROR_DMA;
-
-            /* Call SAI error callback */
-#if (USE_HAL_SAI_REGISTER_CALLBACKS == 1)
-            hsai->ErrorCallback(hsai);
-#else
-            HAL_SAI_ErrorCallback(hsai);
-#endif /* USE_HAL_SAI_REGISTER_CALLBACKS */
-          }
+        HAL_DMA_Abort_IT(hsai->hdmarx);
       }
       else
       {
