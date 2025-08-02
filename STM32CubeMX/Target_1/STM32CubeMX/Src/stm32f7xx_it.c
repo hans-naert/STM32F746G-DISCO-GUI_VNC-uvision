@@ -63,7 +63,16 @@ extern HCD_HandleTypeDef hhcd_USB_OTG_FS;
 extern TIM_HandleTypeDef htim14;
 
 /* USER CODE BEGIN EV */
+extern EXTI_HandleTypeDef hexti0;
+void EXTI0_IRQHandler(void)
+{
+	HAL_EXTI_IRQHandler(&hexti0);
+}
 
+void EXTI15_10_IRQHandler(void)
+{
+  HAL_GPIO_EXTI_IRQHandler(PUSH_BUTTON_Pin);
+}
 /* USER CODE END EV */
 
 /******************************************************************************/
