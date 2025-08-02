@@ -84,8 +84,8 @@ extern int app_main     (void);
 #define SPDIF_RX0_GPIO_Port GPIOD
 #define SDMMC_CK_Pin GPIO_PIN_12
 #define SDMMC_CK_GPIO_Port GPIOC
-#define ARDUINO_PWM_D9_Pin GPIO_PIN_15
-#define ARDUINO_PWM_D9_GPIO_Port GPIOA
+#define EXT_LED7_Pin GPIO_PIN_15
+#define EXT_LED7_GPIO_Port GPIOA
 #define SWCLK_Pin GPIO_PIN_14
 #define SWCLK_GPIO_Port GPIOA
 #define SWDIO_Pin GPIO_PIN_13
@@ -98,8 +98,8 @@ extern int app_main     (void);
 #define RMII_TXD0_GPIO_Port GPIOG
 #define ARDUINO_SDA_D14_Pin GPIO_PIN_9
 #define ARDUINO_SDA_D14_GPIO_Port GPIOB
-#define VCP_RX_Pin GPIO_PIN_7
-#define VCP_RX_GPIO_Port GPIOB
+#define USART1_RX_Pin GPIO_PIN_7
+#define USART1_RX_GPIO_Port GPIOB
 #define QSPI_NCS_Pin GPIO_PIN_6
 #define QSPI_NCS_GPIO_Port GPIOB
 #define FMC_SDNCAS_Pin GPIO_PIN_15
@@ -142,8 +142,8 @@ extern int app_main     (void);
 #define DCMI_D5_GPIO_Port GPIOD
 #define FMC_D3_Pin GPIO_PIN_1
 #define FMC_D3_GPIO_Port GPIOD
-#define ARDUINO_D7_Pin GPIO_PIN_3
-#define ARDUINO_D7_GPIO_Port GPIOI
+#define RST_Pin GPIO_PIN_3
+#define RST_GPIO_Port GPIOI
 #define ARDUINO_D8_Pin GPIO_PIN_2
 #define ARDUINO_D8_GPIO_Port GPIOI
 #define OTG_FS_N_Pin GPIO_PIN_11
@@ -174,8 +174,8 @@ extern int app_main     (void);
 #define SDMMC_CMD_GPIO_Port GPIOD
 #define TP3_Pin GPIO_PIN_15
 #define TP3_GPIO_Port GPIOH
-#define ARDUINO_SCK_D13_Pin GPIO_PIN_1
-#define ARDUINO_SCK_D13_GPIO_Port GPIOI
+#define SPI2_SCK_Pin GPIO_PIN_1
+#define SPI2_SCK_GPIO_Port GPIOI
 #define OTG_FS_ID_Pin GPIO_PIN_10
 #define OTG_FS_ID_GPIO_Port GPIOA
 #define RCC_OSC32_IN_Pin GPIO_PIN_14
@@ -192,22 +192,26 @@ extern int app_main     (void);
 #define DCMI_D4_GPIO_Port GPIOH
 #define ARDUINO_PWM_CS_D5_Pin GPIO_PIN_0
 #define ARDUINO_PWM_CS_D5_GPIO_Port GPIOI
-#define VCP_TX_Pin GPIO_PIN_9
-#define VCP_TX_GPIO_Port GPIOA
+#define USART1_TX_Pin GPIO_PIN_9
+#define USART1_TX_GPIO_Port GPIOA
 #define RCC_OSC32_OUT_Pin GPIO_PIN_15
 #define RCC_OSC32_OUT_GPIO_Port GPIOC
+#define PUSH_BUTTON_Pin GPIO_PIN_11
+#define PUSH_BUTTON_GPIO_Port GPIOI
+#define PUSH_BUTTON_EXTI_IRQn EXTI15_10_IRQn
 #define LCD_G6_Pin GPIO_PIN_1
 #define LCD_G6_GPIO_Port GPIOK
 #define LCD_G7_Pin GPIO_PIN_2
 #define LCD_G7_GPIO_Port GPIOK
-#define ARDUINO_PWM_D10_Pin GPIO_PIN_8
-#define ARDUINO_PWM_D10_GPIO_Port GPIOA
+#define EXT_LED8_Pin GPIO_PIN_8
+#define EXT_LED8_GPIO_Port GPIOA
 #define OSC_25M_Pin GPIO_PIN_0
 #define OSC_25M_GPIO_Port GPIOH
 #define FMC_A2_Pin GPIO_PIN_2
 #define FMC_A2_GPIO_Port GPIOF
 #define LCD_INT_Pin GPIO_PIN_13
 #define LCD_INT_GPIO_Port GPIOI
+#define LCD_INT_EXTI_IRQn EXTI15_10_IRQn
 #define LCD_R0_Pin GPIO_PIN_15
 #define LCD_R0_GPIO_Port GPIOI
 #define LCD_G4_Pin GPIO_PIN_11
@@ -260,8 +264,8 @@ extern int app_main     (void);
 #define ULPI_D6_GPIO_Port GPIOB
 #define FMC_D15_Pin GPIO_PIN_10
 #define FMC_D15_GPIO_Port GPIOD
-#define ARDUINO_A1_Pin GPIO_PIN_10
-#define ARDUINO_A1_GPIO_Port GPIOF
+#define CSN_Pin GPIO_PIN_10
+#define CSN_GPIO_Port GPIOF
 #define ARDUINO_A2_Pin GPIO_PIN_9
 #define ARDUINO_A2_GPIO_Port GPIOF
 #define ARDUINO_A3_Pin GPIO_PIN_8
@@ -304,8 +308,9 @@ extern int app_main     (void);
 #define DCMI_D3_GPIO_Port GPIOH
 #define RMII_REF_CLK_Pin GPIO_PIN_1
 #define RMII_REF_CLK_GPIO_Port GPIOA
-#define ARDUINO_A0_Pin GPIO_PIN_0
-#define ARDUINO_A0_GPIO_Port GPIOA
+#define IRQ_Pin GPIO_PIN_0
+#define IRQ_GPIO_Port GPIOA
+#define IRQ_EXTI_IRQn EXTI0_IRQn
 #define DCMI_HSYNC_Pin GPIO_PIN_4
 #define DCMI_HSYNC_GPIO_Port GPIOA
 #define RMII_RXD0_Pin GPIO_PIN_4
@@ -380,10 +385,10 @@ extern int app_main     (void);
 #define FMC_D10_GPIO_Port GPIOE
 #define ULPI_D4_Pin GPIO_PIN_11
 #define ULPI_D4_GPIO_Port GPIOB
-#define ARDUINO_MISO_D12_Pin GPIO_PIN_14
-#define ARDUINO_MISO_D12_GPIO_Port GPIOB
-#define ARDUINO_MOSI_PWM_D11_Pin GPIO_PIN_15
-#define ARDUINO_MOSI_PWM_D11_GPIO_Port GPIOB
+#define SPI2_MISO_Pin GPIO_PIN_14
+#define SPI2_MISO_GPIO_Port GPIOB
+#define SPI2_MOSI_Pin GPIO_PIN_15
+#define SPI2_MOSI_GPIO_Port GPIOB
 
 /* USER CODE BEGIN Private defines */
 

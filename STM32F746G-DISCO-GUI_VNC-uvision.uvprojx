@@ -314,9 +314,9 @@
           </ArmAdsMisc>
           <Cads>
             <interw>1</interw>
-            <Optim>1</Optim>
+            <Optim>2</Optim>
             <oTime>0</oTime>
-            <SplitLS>0</SplitLS>
+            <SplitLS>1</SplitLS>
             <OneElfS>1</OneElfS>
             <Strict>0</Strict>
             <EnumInt>0</EnumInt>
@@ -446,11 +446,6 @@
               </FileOption>
             </File>
             <File>
-              <FileName>vio.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\vio.c</FilePath>
-            </File>
-            <File>
               <FileName>GUI_SingleThread.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\GUI_SingleThread.c</FilePath>
@@ -484,6 +479,16 @@
               <FileName>stm32746g_discovery.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\stm32746g_discovery.c</FilePath>
+            </File>
+            <File>
+              <FileName>BluetoothThread.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\BluetoothThread.c</FilePath>
+            </File>
+            <File>
+              <FileName>vio.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\vio.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -519,6 +524,26 @@
               <FileName>stm32f7xx_hal_timebase_tim.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\STM32CubeMX\Target_1\STM32CubeMX\Src\stm32f7xx_hal_timebase_tim.c</FilePath>
+            </File>
+            <File>
+              <FileName>gatt_db.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\STM32CubeMX\Target_1\STM32CubeMX\Src\gatt_db.c</FilePath>
+            </File>
+            <File>
+              <FileName>sensor.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\STM32CubeMX\Target_1\STM32CubeMX\Src\sensor.c</FilePath>
+            </File>
+            <File>
+              <FileName>app_bluenrg_ms.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\STM32CubeMX\Target_1\STM32CubeMX\Src\app_bluenrg_ms.c</FilePath>
+            </File>
+            <File>
+              <FileName>hci_tl_interface_template.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\STM32CubeMX\Target_1\STM32CubeMX\Src\hci_tl_interface_template.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -691,16 +716,6 @@
               <FilePath>.\STM32CubeMX\Target_1\STM32CubeMX\Drivers\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_qspi.c</FilePath>
             </File>
             <File>
-              <FileName>stm32f7xx_hal_rtc.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\STM32CubeMX\Target_1\STM32CubeMX\Drivers\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_rtc.c</FilePath>
-            </File>
-            <File>
-              <FileName>stm32f7xx_hal_rtc_ex.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\STM32CubeMX\Target_1\STM32CubeMX\Drivers\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_rtc_ex.c</FilePath>
-            </File>
-            <File>
               <FileName>stm32f7xx_hal_sai.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\STM32CubeMX\Target_1\STM32CubeMX\Drivers\STM32F7xx_HAL_Driver\Src\stm32f7xx_hal_sai.c</FilePath>
@@ -759,6 +774,66 @@
               <FileName>stm32f7xx_ll_usb.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\STM32CubeMX\Target_1\STM32CubeMX\Drivers\STM32F7xx_HAL_Driver\Src\stm32f7xx_ll_usb.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Middlewares/BlueNRG-MS/Wireless/BlueNRG-MS/Utils</GroupName>
+          <Files>
+            <File>
+              <FileName>ble_list.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\STM32CubeMX\Target_1\STM32CubeMX\Middlewares\ST\BlueNRG-MS\utils\ble_list.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Middlewares/BlueNRG-MS/Wireless/BlueNRG-MS/Controller</GroupName>
+          <Files>
+            <File>
+              <FileName>bluenrg_gap_aci.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\STM32CubeMX\Target_1\STM32CubeMX\Middlewares\ST\BlueNRG-MS\hci\controller\bluenrg_gap_aci.c</FilePath>
+            </File>
+            <File>
+              <FileName>bluenrg_gatt_aci.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\STM32CubeMX\Target_1\STM32CubeMX\Middlewares\ST\BlueNRG-MS\hci\controller\bluenrg_gatt_aci.c</FilePath>
+            </File>
+            <File>
+              <FileName>bluenrg_hal_aci.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\STM32CubeMX\Target_1\STM32CubeMX\Middlewares\ST\BlueNRG-MS\hci\controller\bluenrg_hal_aci.c</FilePath>
+            </File>
+            <File>
+              <FileName>bluenrg_l2cap_aci.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\STM32CubeMX\Target_1\STM32CubeMX\Middlewares\ST\BlueNRG-MS\hci\controller\bluenrg_l2cap_aci.c</FilePath>
+            </File>
+            <File>
+              <FileName>bluenrg_updater_aci.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\STM32CubeMX\Target_1\STM32CubeMX\Middlewares\ST\BlueNRG-MS\hci\controller\bluenrg_updater_aci.c</FilePath>
+            </File>
+            <File>
+              <FileName>bluenrg_utils_small.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\STM32CubeMX\Target_1\STM32CubeMX\Middlewares\ST\BlueNRG-MS\hci\controller\bluenrg_utils_small.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Middlewares/BlueNRG-MS/Wireless/BlueNRG-MS/HCI_TL/Basic</GroupName>
+          <Files>
+            <File>
+              <FileName>hci_tl.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\STM32CubeMX\Target_1\STM32CubeMX\Middlewares\ST\BlueNRG-MS\hci\hci_tl_patterns\Basic\hci_tl.c</FilePath>
+            </File>
+            <File>
+              <FileName>hci_le.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\STM32CubeMX\Target_1\STM32CubeMX\Middlewares\ST\BlueNRG-MS\hci\hci_le.c</FilePath>
             </File>
           </Files>
         </Group>

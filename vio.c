@@ -67,7 +67,7 @@ typedef struct {
 
 #if !defined CMSIS_VOUT
 // VOUT Configuration
-static const pinCfg_t outputCfg[] = { vioLED0, GPIO_PIN_ID_PORTI(1), ARM_GPIO_PULL_NONE, VIO_ACTIVE_HIGH};
+static const pinCfg_t outputCfg[] = { vioLED0, GPIO_PIN_ID_PORTF(6), ARM_GPIO_PULL_NONE, VIO_ACTIVE_HIGH};
 #endif
 
 #if !defined CMSIS_VIN
@@ -82,6 +82,28 @@ static const pinCfg_t inputCfg[] = {
 extern ARM_DRIVER_GPIO Driver_GPIO0;
 static ARM_DRIVER_GPIO *pGPIODrv = &Driver_GPIO0;
 #endif
+
+void BSP_PB_Callback(/*Button_TypeDef Button*/);
+
+/* GPIO Signal Event callback */
+static void GPIO_SignalEvent (ARM_GPIO_Pin_t pin, uint32_t event) {
+ 
+  switch (pin) {
+    case GPIO_PIN_ID_PORTI(11):
+      /* Events on pin GPIO_PIN11 */
+      if (event & ARM_GPIO_EVENT_RISING_EDGE) {
+        /* Rising-edge detected */
+								
+				BSP_PB_Callback();
+				
+      }
+      if (event & ARM_GPIO_EVENT_FALLING_EDGE) {
+        /* Falling-edge detected */
+
+      }
+      break;
+  }
+}
 
 // Initialize test input, output.
 void vioInit (void) {
@@ -117,9 +139,10 @@ void vioInit (void) {
 #if !defined CMSIS_VIN
   for (n = 0U; n < (sizeof(inputCfg) / sizeof(pinCfg_t)); n++) {
     pin = (ARM_GPIO_Pin_t)inputCfg[n].pin;
-    pGPIODrv->Setup(pin, NULL);
+    pGPIODrv->Setup(pin, GPIO_SignalEvent);
     pGPIODrv->SetPullResistor(pin, inputCfg[n].pullResistor);
     pGPIODrv->SetDirection(pin, ARM_GPIO_INPUT);
+		pGPIODrv->SetEventTrigger(pin, ARM_GPIO_TRIGGER_RISING_EDGE);
   }
 #endif
 }
