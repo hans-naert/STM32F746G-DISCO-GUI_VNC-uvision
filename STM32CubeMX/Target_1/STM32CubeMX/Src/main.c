@@ -275,12 +275,13 @@ int main(void)
 	SCB_CleanInvalidateDCache();  // Flush (clean) + invalidate entire D-Cache
 	SCB_DisableDCache();          // Then disable it
 		
-  stdio_init();                         /* Initialize STDIO */
+  //stdio_init();                         /* Initialize STDIO */
+	usart_bridge_init();
 
   vioInit();                            /* Initialize Virtual I/O */
 
   app_main();                           /* Execute Application main */
-
+	
   /* USER CODE END 2 */
 
   /* Infinite loop */

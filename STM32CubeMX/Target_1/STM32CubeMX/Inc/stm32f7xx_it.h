@@ -57,6 +57,7 @@ void TIM8_TRG_COM_TIM14_IRQHandler(void);
 void FMC_IRQHandler(void);
 void ETH_IRQHandler(void);
 void OTG_FS_IRQHandler(void);
+void USART6_IRQHandler(void);
 /* USER CODE BEGIN EFP */
 
 /* USER CODE END EFP */
