@@ -243,14 +243,14 @@ void demoCycle( void )
 
     /*******************************************************************************/
     /* Check if USER button is pressed */
-    if( platformGpioIsLow(PLATFORM_USER_BUTTON_PORT, PLATFORM_USER_BUTTON_PIN))
+    if( platformGpioIsHigh(PLATFORM_USER_BUTTON_PORT, PLATFORM_USER_BUTTON_PIN))
     {
         discParam.wakeupEnabled = !discParam.wakeupEnabled;    /* enable/disable wakeup */
         state = DEMO_ST_START_DISCOVERY;                       /* restart loop          */
         platformLog("Toggling Wake Up mode %s\r\n", discParam.wakeupEnabled ? "ON": "OFF");
 
         /* Debounce button */
-        while( platformGpioIsLow(PLATFORM_USER_BUTTON_PORT, PLATFORM_USER_BUTTON_PIN) );
+        while( platformGpioIsHigh(PLATFORM_USER_BUTTON_PORT, PLATFORM_USER_BUTTON_PIN) );
     }
   
     
@@ -306,12 +306,6 @@ void demoCycle( void )
                                 
                             default:
                                 platformLog("ISO14443A/NFC-A card found. UID: %s\r\n", hex2Str( nfcDevice->nfcid, nfcDevice->nfcidLen ) );
-																{
-																	char* s=hex2Str(nfcDevice->nfcid, nfcDevice->nfcidLen) ;
-																	HAL_UART_Transmit (&huart1, (uint8_t *) s, strlen (s) , HAL_MAX_DELAY) ;
-																	char c='\n';
-																	HAL_UART_Transmit (&huart1, (uint8_t *) &c, 1, HAL_MAX_DELAY);
-																}
 																break;
                         }
                         break;

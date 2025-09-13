@@ -10,6 +10,9 @@ build-gen:
     fpu: sp
   add-path:
     - D:/projecten/IoT-Systems-Advanced/nfc
+    - D:/projecten/IoT-Systems-Advanced/nfc/Middlewares/rfal/Inc
+    - D:/projecten/IoT-Systems-Advanced/nfc/ST25R3911
+    - D:/projecten/IoT-Systems-Advanced/nfc/PollingTagDetect/Inc
   components:
     - component: ARM::CMSIS Driver:VIO:Custom@1.0.0
       from-pack: ARM::CMSIS@6.2.0
@@ -66,10 +69,10 @@ build-gen:
           category: sourceC
         - file: D:/projecten/IoT-Systems-Advanced/nfc/RTE/CMSIS/RTX_Config.h
           category: header
-    - component: Keil::CMSIS Driver:Ethernet MAC@3.1.0
-      from-pack: ARM::CMSIS-Driver_STM32@1.2.0
+    - component: Keil::CMSIS Driver:Ethernet MAC@3.2.0
+      from-pack: ARM::CMSIS-Driver_STM32@1.3.0
       files:
-        - file: C:/Users/Hans Naert/AppData/Local/Arm/Packs/ARM/CMSIS-Driver_STM32/1.2.0/Drivers/ETH_MAC_STM32.c
+        - file: C:/Users/Hans Naert/AppData/Local/Arm/Packs/ARM/CMSIS-Driver_STM32/1.3.0/Drivers/ETH_MAC_STM32.c
           category: sourceC
     - component: Keil::CMSIS Driver:Ethernet PHY:LAN8742A@1.3.0
       from-pack: ARM::CMSIS-Driver@2.10.0
@@ -77,14 +80,14 @@ build-gen:
         - file: C:/Users/Hans Naert/AppData/Local/Arm/Packs/ARM/CMSIS-Driver/2.10.0/Ethernet_PHY/LAN8742A/PHY_LAN8742A.c
           category: sourceC
     - component: Keil::CMSIS Driver:GPIO@1.2.0
-      from-pack: ARM::CMSIS-Driver_STM32@1.2.0
+      from-pack: ARM::CMSIS-Driver_STM32@1.3.0
       files:
-        - file: C:/Users/Hans Naert/AppData/Local/Arm/Packs/ARM/CMSIS-Driver_STM32/1.2.0/Drivers/GPIO_STM32.c
+        - file: C:/Users/Hans Naert/AppData/Local/Arm/Packs/ARM/CMSIS-Driver_STM32/1.3.0/Drivers/GPIO_STM32.c
           category: sourceC
     - component: Keil::CMSIS Driver:USART@3.0.0
-      from-pack: ARM::CMSIS-Driver_STM32@1.2.0
+      from-pack: ARM::CMSIS-Driver_STM32@1.3.0
       files:
-        - file: C:/Users/Hans Naert/AppData/Local/Arm/Packs/ARM/CMSIS-Driver_STM32/1.2.0/Drivers/USART_STM32.c
+        - file: C:/Users/Hans Naert/AppData/Local/Arm/Packs/ARM/CMSIS-Driver_STM32/1.3.0/Drivers/USART_STM32.c
           category: sourceC
     - component: Keil::Device:CubeMX@1.0.0
       from-pack: Keil::STM32F7xx_DFP@3.1.1
@@ -243,4 +246,62 @@ build-gen:
         - file: D:/projecten/IoT-Systems-Advanced/nfc/ft5336.c
           category: sourceC
         - file: D:/projecten/IoT-Systems-Advanced/nfc/stm32746g_discovery.c
+          category: sourceC
+    - group: ST25R3911
+      files:
+        - file: D:/projecten/IoT-Systems-Advanced/nfc/ST25R3911/st25r3911.c
+          category: sourceC
+        - file: D:/projecten/IoT-Systems-Advanced/nfc/ST25R3911/st25r3911_com.c
+          category: sourceC
+        - file: D:/projecten/IoT-Systems-Advanced/nfc/ST25R3911/st25r3911_interrupt.c
+          category: sourceC
+        - file: D:/projecten/IoT-Systems-Advanced/nfc/ST25R3911/timer.c
+          category: sourceC
+    - group: Middlewares/RFAL
+      files:
+        - file: D:/projecten/IoT-Systems-Advanced/nfc/Middlewares/rfal/Src/rfal_analogConfig.c
+          category: sourceC
+        - file: D:/projecten/IoT-Systems-Advanced/nfc/Middlewares/rfal/Src/rfal_crc.c
+          category: sourceC
+        - file: D:/projecten/IoT-Systems-Advanced/nfc/Middlewares/rfal/Src/rfal_iso15693_2.c
+          category: sourceC
+        - file: D:/projecten/IoT-Systems-Advanced/nfc/Middlewares/rfal/Src/rfal_isoDep.c
+          category: sourceC
+        - file: D:/projecten/IoT-Systems-Advanced/nfc/Middlewares/rfal/Src/rfal_nfc.c
+          category: sourceC
+        - file: D:/projecten/IoT-Systems-Advanced/nfc/Middlewares/rfal/Src/rfal_nfca.c
+          category: sourceC
+        - file: D:/projecten/IoT-Systems-Advanced/nfc/Middlewares/rfal/Src/rfal_nfcb.c
+          category: sourceC
+        - file: D:/projecten/IoT-Systems-Advanced/nfc/Middlewares/rfal/Src/rfal_nfcDep.c
+          category: sourceC
+        - file: D:/projecten/IoT-Systems-Advanced/nfc/Middlewares/rfal/Src/rfal_nfcf.c
+          category: sourceC
+        - file: D:/projecten/IoT-Systems-Advanced/nfc/Middlewares/rfal/Src/rfal_nfcv.c
+          category: sourceC
+        - file: D:/projecten/IoT-Systems-Advanced/nfc/Middlewares/rfal/Src/rfal_rfst25r3911.c
+          category: sourceC
+        - file: D:/projecten/IoT-Systems-Advanced/nfc/Middlewares/rfal/Src/rfal_st25tb.c
+          category: sourceC
+        - file: D:/projecten/IoT-Systems-Advanced/nfc/Middlewares/rfal/Src/rfal_st25xv.c
+          category: sourceC
+        - file: D:/projecten/IoT-Systems-Advanced/nfc/Middlewares/rfal/Src/rfal_t1t.c
+          category: sourceC
+        - file: D:/projecten/IoT-Systems-Advanced/nfc/Middlewares/rfal/Src/rfal_t2t.c
+          category: sourceC
+        - file: D:/projecten/IoT-Systems-Advanced/nfc/Middlewares/rfal/Src/rfal_t4t.c
+          category: sourceC
+    - group: PollingTagDetect
+      files:
+        - file: D:/projecten/IoT-Systems-Advanced/nfc/PollingTagDetect/Src/demo.c
+          category: sourceC
+        - file: D:/projecten/IoT-Systems-Advanced/nfc/PollingTagDetect/Src/logger.c
+          category: sourceC
+        - file: D:/projecten/IoT-Systems-Advanced/nfc/PollingTagDetect/Src/spi.c
+          category: sourceC
+        - file: D:/projecten/IoT-Systems-Advanced/nfc/PollingTagDetect/Src/usart.c
+          category: sourceC
+        - file: D:/projecten/IoT-Systems-Advanced/nfc/PollingTagDetect/Src/ndef_demo.c
+          category: sourceC
+        - file: D:/projecten/IoT-Systems-Advanced/nfc/PollingTagDetect/Src/ndef_dump.c
           category: sourceC

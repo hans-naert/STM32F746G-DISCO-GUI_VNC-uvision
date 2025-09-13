@@ -55,19 +55,19 @@
 * INCLUDES
 ******************************************************************************
 */
-#ifdef STM32L476xx
-#include "stm32l4xx_hal.h"
-#else 
-#include "stm32f4xx_hal.h"
-#endif
+//#ifdef STM32L476xx
+//#include "stm32l4xx_hal.h"
+//#else 
+//#include "stm32f4xx_hal.h"
+//#endif
 
 #include <stdint.h>
 #include <stdbool.h>
 #include <limits.h>
-
+#include "main.h"
 #include "spi.h"
 #include "timer.h"
-#include "main.h"
+
 #include "logger.h"
 
 

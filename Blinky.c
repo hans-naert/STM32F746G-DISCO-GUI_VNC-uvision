@@ -25,6 +25,17 @@
 #include "cmsis_vio.h"
 #include "rl_net.h"                     // Keil::Network&MDK:CORE
 
+#include "demo.h"
+#include "platform.h"
+#include "spi.h"
+#include "usart.h"
+#include "logger.h"
+#include "st_errno.h"
+#include "rfal_nfc.h"
+
+extern UART_HandleTypeDef huart1;
+extern SPI_HandleTypeDef hspi2;
+
 static osThreadId_t tid_thrLED;         // Thread id of thread: LED
 static osThreadId_t tid_thrButton;      // Thread id of thread: Button
 
@@ -114,7 +125,60 @@ __NO_RETURN void app_main_thread (void *argument) {
     printf("IP6: %s\n", ip_ascii);
 	}
 	
-	osThreadExit();
+	spiInit(&hspi2);
+  
+  /* Initialize log module */
+  logUsartInit(&huart1);
+  
+  platformLog("Welcome to X-NUCLEO-NFC05A1\r\n");
+  
+  /* Initalize RFAL */
+  if( !demoIni() )
+  {
+    /*
+    * in case the rfal initalization failed signal it by flashing all LED
+    * and stoping all operations
+    */
+    platformLog("Initialization failed..\r\n");
+    while(1) 
+    {
+      platformLedToogle(PLATFORM_LED_FIELD_PORT, PLATFORM_LED_FIELD_PIN);
+      platformLedToogle(PLATFORM_LED_A_PORT, PLATFORM_LED_A_PIN);
+      platformLedToogle(PLATFORM_LED_B_PORT, PLATFORM_LED_B_PIN);
+      platformLedToogle(PLATFORM_LED_F_PORT, PLATFORM_LED_F_PIN);
+      platformLedToogle(PLATFORM_LED_V_PORT, PLATFORM_LED_V_PIN);
+      platformLedToogle(PLATFORM_LED_AP2P_PORT, PLATFORM_LED_AP2P_PIN);
+      platformDelay(100);
+    }
+  }
+  else
+  {
+    platformLog("Initialization succeeded..\r\n");
+    for (int i = 0; i < 6; i++) 
+    {
+      platformLedToogle(PLATFORM_LED_FIELD_PORT, PLATFORM_LED_FIELD_PIN);
+      platformLedToogle(PLATFORM_LED_A_PORT, PLATFORM_LED_A_PIN);
+      platformLedToogle(PLATFORM_LED_B_PORT, PLATFORM_LED_B_PIN);
+      platformLedToogle(PLATFORM_LED_F_PORT, PLATFORM_LED_F_PIN);
+      platformLedToogle(PLATFORM_LED_V_PORT, PLATFORM_LED_V_PIN);
+      platformLedToogle(PLATFORM_LED_AP2P_PORT, PLATFORM_LED_AP2P_PIN);
+      platformDelay(200);
+    }
+    
+    platformLedOff(PLATFORM_LED_A_PORT, PLATFORM_LED_A_PIN);
+    platformLedOff(PLATFORM_LED_B_PORT, PLATFORM_LED_B_PIN);
+    platformLedOff(PLATFORM_LED_F_PORT, PLATFORM_LED_F_PIN);
+    platformLedOff(PLATFORM_LED_V_PORT, PLATFORM_LED_V_PIN);
+    platformLedOff(PLATFORM_LED_AP2P_PORT, PLATFORM_LED_AP2P_PIN);
+    platformLedOff(PLATFORM_LED_FIELD_PORT, PLATFORM_LED_FIELD_PIN);
+  }
+  
+  while (1) 
+  {
+    /* Run Demo Application */
+    demoCycle();  
+  }
+  
 	
   for (;;) {                            // Loop forever
   }

@@ -22,6 +22,7 @@
 #include "stm32f7xx_it.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "st25R3911_interrupt.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -174,7 +175,7 @@ void EXTI0_IRQHandler(void)
   /* USER CODE END EXTI0_IRQn 0 */
   HAL_GPIO_EXTI_IRQHandler(IRQ_3911_Pin);
   /* USER CODE BEGIN EXTI0_IRQn 1 */
-
+  st25r3911Isr();
   /* USER CODE END EXTI0_IRQn 1 */
 }
 
