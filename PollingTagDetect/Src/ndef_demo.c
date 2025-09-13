@@ -191,7 +191,7 @@ static void ledsOff(void);
 static void checkUserButton(void)
 {
     /* Check if USER button is pressed */
-    if( platformGpioIsLow(PLATFORM_USER_BUTTON_PORT, PLATFORM_USER_BUTTON_PIN))
+    if( platformGpioIsHigh(PLATFORM_USER_BUTTON_PORT, PLATFORM_USER_BUTTON_PIN))
     {
         ndefDemoFeature++;
         ndefDemoFeature %= NDEF_DEMO_MAX_FEATURES;
@@ -200,7 +200,7 @@ static void checkUserButton(void)
         ndefDemoPrevFeature = ndefDemoFeature;
         platformLog("%s\r\n", ndefDemoFeatureDescription[ndefDemoFeature]);
         /* Debounce button */
-        while( platformGpioIsLow(PLATFORM_USER_BUTTON_PORT, PLATFORM_USER_BUTTON_PIN) );
+        while( platformGpioIsHigh(PLATFORM_USER_BUTTON_PORT, PLATFORM_USER_BUTTON_PIN) );
         if( ndefDemoFeature != NDEF_DEMO_READ )
         {
             timer = platformTimerCreate(NDEF_WRITE_FORMAT_TIMEOUT);

@@ -1,0 +1,13 @@
+build-gen-idx:
+  generated-by: uVision version 5.43.1.0
+  generators:
+    - board: 
+      device: STM32F746NGHx
+      id: CubeMX
+      output: D:/projecten/IoT-Systems-Advanced/nfc/STM32CubeMX/NDEF/
+      project-type: single-core
+      cbuild-gens:
+        - cbuild-gen: D:/projecten/IoT-Systems-Advanced/nfc/STM32F746G-DISCO-GUI_VNC-uvision.NDEF.cbuild-gen.yml
+          configuration: .NDEF
+          name: D:/projecten/IoT-Systems-Advanced/nfc/STM32CubeMX/NDEF/STM32F746G-DISCO-GUI_VNC-uvision.cgen.yml
+          project: STM32F746G-DISCO-GUI_VNC-uvision
