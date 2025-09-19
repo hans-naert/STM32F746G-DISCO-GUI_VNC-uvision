@@ -8415,8 +8415,8 @@
           <targetInfo name="Target_1"/>
         </targetInfos>
       </component>
-      <component Capiversion="2.2.0" Cclass="CMSIS Driver" Cgroup="Ethernet MAC" Cvendor="Keil" Cversion="3.2.0" condition="CMSIS Driver requirements" ymlID="CMSIS Driver:Ethernet MAC">
-        <package name="CMSIS-Driver_STM32" schemaVersion="1.7.37" url="https://www.keil.com/pack/" vendor="ARM" version="1.3.0"/>
+      <component Capiversion="2.2.0" Cclass="CMSIS Driver" Cgroup="Ethernet MAC" Cvendor="Keil" Cversion="3.1.0" condition="CMSIS Driver requirements" ymlID="CMSIS Driver:Ethernet MAC">
+        <package name="CMSIS-Driver_STM32" schemaVersion="1.7.37" url="https://www.keil.com/pack/" vendor="ARM" version="1.2.0"/>
         <targetInfos>
           <targetInfo name="NDEF"/>
           <targetInfo name="Target_1"/>

@@ -1,0 +1,22 @@
+solution:
+  created-by: uv2csolution@1.6.0
+  created-for: CMSIS-Toolbox@2.7.0
+  compiler: AC6
+  target-types:
+    - type: Target_1
+      device: STM32F746NGHx
+      optimize: debug
+      target-set:
+        - set:
+          images:
+            - project-context: STM32F746G-DISCO-GUI_VNC-uvision
+          debugger:
+            name: ST-Link@pyOCD
+            port: 3333
+            protocol: swd
+            clock: 10000000
+    - type: NDEF
+      device: STM32F746NGHx
+      optimize: debug
+  projects:
+    - project: STM32F746G-DISCO-GUI_VNC-uvision.cproject.yml
