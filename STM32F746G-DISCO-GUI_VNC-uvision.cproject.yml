@@ -141,6 +141,7 @@ project:
         - file: stm32746g_discovery_ts.c
         - file: ft5336.c
         - file: stm32746g_discovery.c
+        - file: nfc_display.c
     - group: ST25R3911
       files:
         - file: ST25R3911/st25r3911.c

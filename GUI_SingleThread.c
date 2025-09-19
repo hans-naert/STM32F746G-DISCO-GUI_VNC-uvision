@@ -4,6 +4,7 @@
 #include "DIALOG.h"
 #include "main.h"
 #include <stdio.h>
+#include "nfc_display.h"
 
 #define ID_FRAMEWIN_0     (GUI_ID_USER + 0x00)
 #define ID_BUTTON_0     (GUI_ID_USER + 0x01)
@@ -49,18 +50,21 @@ __NO_RETURN static void GUIThread (void *argument) {
   /* Add GUI setup code here */
 	WM_HWIN hWin = CreateFramewin();
 	
-	WM_HWIN hItem = WM_GetDialogItem(hWin, ID_TEXT_0);
-  
-	int time=0;
+  WM_HWIN hItem = WM_GetDialogItem(hWin, ID_TEXT_0);
+
+  int time=0; /* Keep time display as fallback */
+  char uidBuf[64];
 	  
   while (1) {
-		if(HAL_GetTick() /1000 != time)
-		{
-			time=HAL_GetTick()/1000;
-			char buffer[50];
-			sprintf(buffer,"%d",time);
-			TEXT_SetText(hItem,buffer);
-		};
+    /* If a new NFC UID is available, show it; otherwise periodically show time */
+    if (NFC_DisplayFetchUID(uidBuf, sizeof(uidBuf))) {
+      TEXT_SetText(hItem, uidBuf);
+    } else if (HAL_GetTick() /1000 != time) {
+      time=HAL_GetTick()/1000;
+      char buffer[50];
+      snprintf(buffer,sizeof(buffer),"%d",time);
+      TEXT_SetText(hItem,buffer);
+    }
     
     /* All GUI related activities might only be called from here */
     GUI_TOUCH_Exec();             /* Execute Touchscreen support */

@@ -46,6 +46,7 @@
 #include "utils.h"
 #include "rfal_nfc.h"
 #include "main.h"
+#include "nfc_display.h"
 
 #if defined(ST25R3916) && defined(RFAL_FEATURE_LISTEN_MODE)
 #include "demo_ce.h"
@@ -288,24 +289,40 @@ void demoCycle( void )
                         switch( nfcDevice->dev.nfca.type )
                         {
                             case RFAL_NFCA_T1T:
-                                platformLog("ISO14443A/Topaz (NFC-A T1T) TAG found. UID: %s\r\n", hex2Str( nfcDevice->nfcid, nfcDevice->nfcidLen ) );
+                                {
+                                    char *uidStr = hex2Str( nfcDevice->nfcid, nfcDevice->nfcidLen );
+                                    platformLog("ISO14443A/Topaz (NFC-A T1T) TAG found. UID: %s\r\n", uidStr );
+                                    NFC_DisplaySetUID(uidStr);
+                                }
                                 break;
                             
                             case RFAL_NFCA_T4T:
-                                platformLog("NFCA Passive ISO-DEP device found. UID: %s\r\n", hex2Str( nfcDevice->nfcid, nfcDevice->nfcidLen ) );
+                                {
+                                    char *uidStr = hex2Str( nfcDevice->nfcid, nfcDevice->nfcidLen );
+                                    platformLog("NFCA Passive ISO-DEP device found. UID: %s\r\n", uidStr );
+                                    NFC_DisplaySetUID(uidStr);
+                                }
                             
                                 demoAPDU();
                                 break;
                             
                             case RFAL_NFCA_T4T_NFCDEP:
                             case RFAL_NFCA_NFCDEP:
-                                platformLog("NFCA Passive P2P device found. NFCID: %s\r\n", hex2Str( nfcDevice->nfcid, nfcDevice->nfcidLen ) );
+                                {
+                                    char *uidStr = hex2Str( nfcDevice->nfcid, nfcDevice->nfcidLen );
+                                    platformLog("NFCA Passive P2P device found. NFCID: %s\r\n", uidStr );
+                                    NFC_DisplaySetUID(uidStr);
+                                }
                                 
                                 demoP2P();
                                 break;
                                 
                             default:
-                                platformLog("ISO14443A/NFC-A card found. UID: %s\r\n", hex2Str( nfcDevice->nfcid, nfcDevice->nfcidLen ) );
+                                {
+                                    char *uidStr = hex2Str( nfcDevice->nfcid, nfcDevice->nfcidLen );
+                                    platformLog("ISO14443A/NFC-A card found. UID: %s\r\n", uidStr );
+                                    NFC_DisplaySetUID(uidStr);
+                                }
 																break;
                         }
                         break;
@@ -313,7 +330,11 @@ void demoCycle( void )
                     /*******************************************************************************/
                     case RFAL_NFC_LISTEN_TYPE_NFCB:
                         
-                        platformLog("ISO14443B/NFC-B card found. UID: %s\r\n", hex2Str( nfcDevice->nfcid, nfcDevice->nfcidLen ) );
+                        {
+                            char *uidStr = hex2Str( nfcDevice->nfcid, nfcDevice->nfcidLen );
+                            platformLog("ISO14443B/NFC-B card found. UID: %s\r\n", uidStr );
+                            NFC_DisplaySetUID(uidStr);
+                        }
                         platformLedOn(PLATFORM_LED_B_PORT, PLATFORM_LED_B_PIN);
                     
                         if( rfalNfcbIsIsoDepSupported( &nfcDevice->dev.nfcb ) )
@@ -327,12 +348,20 @@ void demoCycle( void )
                         
                         if( rfalNfcfIsNfcDepSupported( &nfcDevice->dev.nfcf ) )
                         {
-                            platformLog("NFCF Passive P2P device found. NFCID: %s\r\n", hex2Str( nfcDevice->nfcid, nfcDevice->nfcidLen ) );
+                            {
+                                char *uidStr = hex2Str( nfcDevice->nfcid, nfcDevice->nfcidLen );
+                                platformLog("NFCF Passive P2P device found. NFCID: %s\r\n", uidStr );
+                                NFC_DisplaySetUID(uidStr);
+                            }
                             demoP2P();
                         }
                         else
                         {
-                            platformLog("Felica/NFC-F card found. UID: %s\r\n", hex2Str( nfcDevice->nfcid, nfcDevice->nfcidLen ));
+                            {
+                                char *uidStr = hex2Str( nfcDevice->nfcid, nfcDevice->nfcidLen );
+                                platformLog("Felica/NFC-F card found. UID: %s\r\n", uidStr );
+                                NFC_DisplaySetUID(uidStr);
+                            }
                             
                             demoNfcf( &nfcDevice->dev.nfcf );
                         }
@@ -347,7 +376,11 @@ void demoCycle( void )
                             
                             ST_MEMCPY( devUID, nfcDevice->nfcid, nfcDevice->nfcidLen );   /* Copy the UID into local var */
                             REVERSE_BYTES( devUID, RFAL_NFCV_UID_LEN );                 /* Reverse the UID for display purposes */
-                            platformLog("ISO15693/NFC-V card found. UID: %s\r\n", hex2Str(devUID, RFAL_NFCV_UID_LEN));
+                            {
+                                char *uidStr = hex2Str(devUID, RFAL_NFCV_UID_LEN);
+                                platformLog("ISO15693/NFC-V card found. UID: %s\r\n", uidStr);
+                                NFC_DisplaySetUID(uidStr);
+                            }
                         
                             platformLedOn(PLATFORM_LED_V_PORT, PLATFORM_LED_V_PIN);
                             
@@ -358,7 +391,11 @@ void demoCycle( void )
                     /*******************************************************************************/
                     case RFAL_NFC_LISTEN_TYPE_ST25TB:
                         
-                        platformLog("ST25TB card found. UID: %s\r\n", hex2Str( nfcDevice->nfcid, nfcDevice->nfcidLen ));
+                        {
+                            char *uidStr = hex2Str( nfcDevice->nfcid, nfcDevice->nfcidLen );
+                            platformLog("ST25TB card found. UID: %s\r\n", uidStr );
+                            NFC_DisplaySetUID(uidStr);
+                        }
                         platformLedOn(PLATFORM_LED_B_PORT, PLATFORM_LED_B_PIN);
                         break;
                     
