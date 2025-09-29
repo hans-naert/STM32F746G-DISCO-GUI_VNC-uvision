@@ -42,6 +42,9 @@
  * INCLUDES
  ******************************************************************************
  */
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
 #include "demo.h"
 #include "utils.h"
 #include "rfal_nfc.h"
@@ -308,6 +311,36 @@ void demoCycle( void )
                                 platformLog("ISO14443A/NFC-A card found. UID: %s\r\n", hex2Str( nfcDevice->nfcid, nfcDevice->nfcidLen ) );
 																break;
                         }
+
+                        //print UID
+                        printf("ISO14443A/NFC-A card found. UID: %s\r\n", hex2Str( nfcDevice->nfcid, nfcDevice->nfcidLen ) );
+
+                        //compare UID
+                        if (strcmp(hex2Str( nfcDevice->nfcid, nfcDevice->nfcidLen ), "042570A2116A80") == 0) {
+                            platformLog("UID matches the target UID!\r\n");                            
+                        } else {
+                            platformLog("UID does not match the target UID.\r\n");                           
+                        }
+
+                        #define UID_LEN 15   // including '\0'
+
+                        // 2D char array of sorted list of UIDs
+                        const char knownUIDs[][UID_LEN] = {
+                            "0123456789ABCD",
+                            "042570A2116A80",
+                            "1234567890ABCD",
+                            "ABCDEF12345678"
+                        };
+                        
+                        //search for UID in the list
+                        const char* found=bsearch(hex2Str( nfcDevice->nfcid, nfcDevice->nfcidLen ), knownUIDs, sizeof(knownUIDs) / sizeof(knownUIDs[0]), sizeof(knownUIDs[0]), (int (*)(const void*, const void*))strcmp);
+                        int index = (found != NULL) ? (found - (const char*)knownUIDs) / UID_LEN : -1;
+                        if (index >= 0) {
+                            platformLog("UID found in the known UIDs list at index %d.\r\n", index);
+                        } else {
+                            platformLog("UID not found in the known UIDs list.\r\n");
+                        }
+
                         break;
                     
                     /*******************************************************************************/

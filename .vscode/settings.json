@@ -1,6 +1,6 @@
 {
     "debug.hideSlowPreLaunchWarning": true,
     "clangd.arguments": [
-        "--compile-commands-dir=d:\\IoT-Systems-Advanced\\nfc\\out\\STM32F746G-DISCO-GUI_VNC-uvision\\Target_1"
+        "--compile-commands-dir=d:\\IoT-Systems-Advanced\\voorbereiding\\2025-09-29\\nfc-csolution-bsearch\\out\\STM32F746G-DISCO-GUI_VNC-uvision\\Target_1"
     ]
 }
