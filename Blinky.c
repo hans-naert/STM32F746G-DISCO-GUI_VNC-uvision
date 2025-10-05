@@ -25,6 +25,8 @@
 #include "cmsis_vio.h"
 #include "rl_net.h"                     // Keil::Network&MDK:CORE
 
+#include "rl_usb.h"
+
 static osThreadId_t tid_thrLED;         // Thread id of thread: LED
 static osThreadId_t tid_thrButton;      // Thread id of thread: Button
 
@@ -42,17 +44,17 @@ static __NO_RETURN void thrLED (void *argument) {
     }
 
     if (active_flag == 1U) {
-      vioSetSignal(vioLED0, vioLEDoff);         // Switch LED0 off
+      //vioSetSignal(vioLED0, vioLEDoff);         // Switch LED0 off
       vioSetSignal(vioLED1, vioLEDon);          // Switch LED1 on
       osDelay(100U);                            // Delay 100 ms
-      vioSetSignal(vioLED0, vioLEDon);          // Switch LED0 on
+      //vioSetSignal(vioLED0, vioLEDon);          // Switch LED0 on
       vioSetSignal(vioLED1, vioLEDoff);         // Switch LED1 off
       osDelay(100U);                            // Delay 100 ms
     }
     else {
-      vioSetSignal(vioLED0, vioLEDon);          // Switch LED0 on
+      //vioSetSignal(vioLED0, vioLEDon);          // Switch LED0 on
       osDelay(500U);                            // Delay 500 ms
-      vioSetSignal(vioLED0, vioLEDoff);         // Switch LED0 off
+      //vioSetSignal(vioLED0, vioLEDoff);         // Switch LED0 off
       osDelay(500U);                            // Delay 500 ms
     }
   }
@@ -97,6 +99,8 @@ __NO_RETURN void app_main_thread (void *argument) {
 	(void)argument;
 	uint8_t ip_addr[NET_ADDR_IP6_LEN];
   char    ip_ascii[40];
+	uint8_t but;
+  uint8_t but_prev = 0U;
 
   printf("Blinky example\n");
 
@@ -113,6 +117,18 @@ __NO_RETURN void app_main_thread (void *argument) {
     netIP_ntoa(NET_ADDR_IP6, ip_addr, ip_ascii, sizeof(ip_ascii));
     printf("IP6: %s\n", ip_ascii);
 	}
+											
+	USBD_Initialize(0U);                  // USB Device 0 Initialization
+  USBD_Connect   (0U);                  // USB Device 0 Connect
+
+  for (;;) {                            // Loop forever
+    but = (uint8_t)(vioGetSignal(0xFFU));
+    if (but != but_prev) {
+      but_prev = but;
+      if (USBD_Configured (0)) { USBD_HID_GetReportTrigger(0U, 0U, &but, 1U); }
+    }
+    osDelay(100U);                      // 100 ms delay for sampling buttons
+  }
 	
 	osThreadExit();
 	

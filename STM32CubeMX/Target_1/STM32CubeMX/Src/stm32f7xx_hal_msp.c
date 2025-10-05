@@ -1623,15 +1623,15 @@ void HAL_UART_MspDeInit(UART_HandleTypeDef* huart)
 }
 
 /**
-  * @brief HCD MSP Initialization
+  * @brief PCD MSP Initialization
   * This function configures the hardware resources used in this example
-  * @param hhcd: HCD handle pointer
+  * @param hpcd: PCD handle pointer
   * @retval None
   */
-void HAL_HCD_MspInit(HCD_HandleTypeDef* hhcd)
+void HAL_PCD_MspInit(PCD_HandleTypeDef* hpcd)
 {
   GPIO_InitTypeDef GPIO_InitStruct = {0};
-  if(hhcd->Instance==USB_OTG_FS)
+  if(hpcd->Instance==USB_OTG_FS)
   {
     /* USER CODE BEGIN USB_OTG_FS_MspInit 0 */
 
@@ -1664,14 +1664,14 @@ void HAL_HCD_MspInit(HCD_HandleTypeDef* hhcd)
 }
 
 /**
-  * @brief HCD MSP De-Initialization
+  * @brief PCD MSP De-Initialization
   * This function freeze the hardware resources used in this example
-  * @param hhcd: HCD handle pointer
+  * @param hpcd: PCD handle pointer
   * @retval None
   */
-void HAL_HCD_MspDeInit(HCD_HandleTypeDef* hhcd)
+void HAL_PCD_MspDeInit(PCD_HandleTypeDef* hpcd)
 {
-  if(hhcd->Instance==USB_OTG_FS)
+  if(hpcd->Instance==USB_OTG_FS)
   {
     /* USER CODE BEGIN USB_OTG_FS_MspDeInit 0 */
 
