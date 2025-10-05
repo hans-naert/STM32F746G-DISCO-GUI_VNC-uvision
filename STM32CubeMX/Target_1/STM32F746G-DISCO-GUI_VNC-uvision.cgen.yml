@@ -65,5 +65,6 @@ generator-import:
         - file: ./STM32CubeMX/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_spi_ex.c
         - file: ./STM32CubeMX/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_uart.c
         - file: ./STM32CubeMX/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_uart_ex.c
-        - file: ./STM32CubeMX/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_hcd.c
+        - file: ./STM32CubeMX/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_pcd.c
+        - file: ./STM32CubeMX/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_pcd_ex.c
         - file: ./STM32CubeMX/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_ll_usb.c

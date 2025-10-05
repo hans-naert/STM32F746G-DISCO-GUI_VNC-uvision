@@ -24,6 +24,7 @@
 #include "cmsis_os2.h"                  // ::CMSIS:RTOS2
 #include "cmsis_vio.h"
 #include "rl_net.h"                     // Keil::Network&MDK:CORE
+#include "rl_usb.h"
 
 static osThreadId_t tid_thrLED;         // Thread id of thread: LED
 static osThreadId_t tid_thrButton;      // Thread id of thread: Button
@@ -113,6 +114,9 @@ __NO_RETURN void app_main_thread (void *argument) {
     netIP_ntoa(NET_ADDR_IP6, ip_addr, ip_ascii, sizeof(ip_ascii));
     printf("IP6: %s\n", ip_ascii);
 	}
+											
+	USBD_Initialize(0U);                  // USB Device 0 Initialization
+  USBD_Connect   (0U);                  // USB Device 0 Connect
 	
 	osThreadExit();
 	
