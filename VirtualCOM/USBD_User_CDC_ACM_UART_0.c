@@ -73,7 +73,7 @@
  
 // UART Configuration ----------------------------------------------------------
  
-#define  UART_PORT              CMSIS_DRIVER_USART      // UART Port number
+#define  UART_PORT             1 //CMSIS_DRIVER_USART      // UART Port number
 #define  UART_BUFFER_SIZE      (512)                    // UART Buffer Size
  
 //------------------------------------------------------------------------------
