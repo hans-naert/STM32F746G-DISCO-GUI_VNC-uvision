@@ -56,10 +56,14 @@
 //! [code_USBD_User_CDC_ACM]
  
 #include <stdio.h>
+#include <string.h> 
  
 #include "rl_usb.h"
  
 #include "Driver_USART.h"
+
+#define USB_RECEIVE_BUFFER_SIZE (512)
+uint8_t usb_receive_buffer[USB_RECEIVE_BUFFER_SIZE];
 
 #ifndef  RTE_CMSIS_RTOS2
 #error   This user template requires CMSIS-RTOS2!
@@ -164,7 +168,16 @@ static const osThreadAttr_t cdc0_acm_uart_to_usb_thread_attr = {
   0U
 };
  
- 
+#define CMD_BUFFER_SIZE (64)
+uint8_t cmd_buffer[CMD_BUFFER_SIZE];
+int cmd_buffer_cnt=0;
+
+void process_AT_command(uint8_t* cmd_buffer)
+{
+	snprintf((char*)uart_tx_buf,UART_BUFFER_SIZE,"received AT command: %s\r\n",cmd_buffer);
+	ptrUART->Send(uart_tx_buf, strlen((char*)uart_tx_buf));
+}
+
 // CDC ACM Callbacks -----------------------------------------------------------
  
 // Called when new data was received from the USB Host.
@@ -176,9 +189,23 @@ void USBD_CDC0_ACM_DataReceived (uint32_t len) {
  
   if (ptrUART->GetStatus().tx_busy == 0U) {
     // Start USB -> UART
-    cnt = USBD_CDC_ACM_ReadData(0U, uart_tx_buf, UART_BUFFER_SIZE);
+    cnt = USBD_CDC_ACM_ReadData(0U, usb_receive_buffer, USB_RECEIVE_BUFFER_SIZE);
     if (cnt > 0) {
-      (void)ptrUART->Send(uart_tx_buf, (uint32_t)(cnt));
+      //(void)ptrUART->Send(uart_tx_buf, (uint32_t)(cnt));
+			for(int i=0; i<cnt; i++)
+			{
+				//check if character is '\r'
+				if(usb_receive_buffer[i]=='\r')
+				{
+					cmd_buffer[cmd_buffer_cnt++]='\0';
+					process_AT_command(cmd_buffer);
+					cmd_buffer_cnt=0;
+				}
+				else
+				{
+					cmd_buffer[cmd_buffer_cnt++]=usb_receive_buffer[i];
+				}
+			}	
     }
   }
 }
