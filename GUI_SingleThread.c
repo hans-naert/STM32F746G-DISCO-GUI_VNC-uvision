@@ -9,8 +9,11 @@
 #define ID_BUTTON_0     (GUI_ID_USER + 0x01)
 #define ID_CHECKBOX_0     (GUI_ID_USER + 0x02)
 #define ID_TEXT_0     (GUI_ID_USER + 0x03)
+#define ID_MULTIEDIT_0     (GUI_ID_USER + 0x04)
 
 extern int  GUI_VNC_X_StartServer(int, int);
+
+char multiedit_buffer[512]={0};
 
 /*----------------------------------------------------------------------------
  *      GUIThread: GUI Thread for Single-Task Execution Model
@@ -50,6 +53,8 @@ __NO_RETURN static void GUIThread (void *argument) {
 	WM_HWIN hWin = CreateFramewin();
 	
 	WM_HWIN hItem = WM_GetDialogItem(hWin, ID_TEXT_0);
+	WM_HWIN hItemMultiEdit = WM_GetDialogItem(hWin, ID_MULTIEDIT_0);
+	
   
 	int time=0;
 	  
@@ -60,6 +65,9 @@ __NO_RETURN static void GUIThread (void *argument) {
 			char buffer[50];
 			sprintf(buffer,"%d",time);
 			TEXT_SetText(hItem,buffer);
+			
+			
+			MULTIEDIT_SetText(hItemMultiEdit, multiedit_buffer);
 		};
     
     /* All GUI related activities might only be called from here */

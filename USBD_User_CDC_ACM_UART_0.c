@@ -56,6 +56,7 @@
 //! [code_USBD_User_CDC_ACM]
  
 #include <stdio.h>
+#include <string.h>
  
 #include "rl_usb.h"
  
@@ -70,6 +71,7 @@
 #define  UART_PORT              1       // UART Port number
 #define  UART_BUFFER_SIZE      (512)    // UART Buffer Size
  
+extern char multiedit_buffer[]; 
 //------------------------------------------------------------------------------
  
 #define _UART_Driver_(n)        Driver_USART##n
@@ -100,6 +102,12 @@ static void UART_Callback (uint32_t event) {
     cnt = USBD_CDC_ACM_ReadData(0U, uart_tx_buf, UART_BUFFER_SIZE);
     if (cnt > 0) {
       (void)ptrUART->Send(uart_tx_buf, (uint32_t)(cnt));
+			
+			int len=strlen(multiedit_buffer);
+			if(len+cnt<512)
+				memcpy(multiedit_buffer+len,uart_tx_buf,cnt);
+
+			
     }
   }
  
@@ -179,6 +187,11 @@ void USBD_CDC0_ACM_DataReceived (uint32_t len) {
     cnt = USBD_CDC_ACM_ReadData(0U, uart_tx_buf, UART_BUFFER_SIZE);
     if (cnt > 0) {
       (void)ptrUART->Send(uart_tx_buf, (uint32_t)(cnt));
+			
+			int len=strlen(multiedit_buffer);			
+			if(len+cnt<512)
+				memcpy(multiedit_buffer+len,uart_tx_buf,cnt);
+
     }
   }
 }

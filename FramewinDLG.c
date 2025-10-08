@@ -33,6 +33,7 @@
 #define ID_BUTTON_0     (GUI_ID_USER + 0x01)
 #define ID_CHECKBOX_0     (GUI_ID_USER + 0x02)
 #define ID_TEXT_0     (GUI_ID_USER + 0x03)
+#define ID_MULTIEDIT_0     (GUI_ID_USER + 0x04)
 
 
 // USER START (Optionally insert additional defines)
@@ -57,6 +58,7 @@ static const GUI_WIDGET_CREATE_INFO _aDialogCreate[] = {
   { BUTTON_CreateIndirect, "Button", ID_BUTTON_0, 157, 96, 80, 20, 0, 0x0, 0 },
   { CHECKBOX_CreateIndirect, "Checkbox", ID_CHECKBOX_0, 160, 52, 80, 20, 0, 0x0, 0 },
   { TEXT_CreateIndirect, "Text", ID_TEXT_0, 0, 0, 80, 20, 0, 0x0, 0 },
+  { MULTIEDIT_CreateIndirect, "Multiedit", ID_MULTIEDIT_0, 69, 130, 356, 97, 0, 0x0, 0 },
   // USER START (Optionally insert additional widgets)
   // USER END
 };
@@ -89,6 +91,11 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
     //
     hItem = WM_GetDialogItem(pMsg->hWin, ID_CHECKBOX_0);
     CHECKBOX_SetText(hItem, "Check");
+    //
+    // Initialization of 'Multiedit'
+    //
+    hItem = WM_GetDialogItem(pMsg->hWin, ID_MULTIEDIT_0);
+    MULTIEDIT_SetText(hItem, "VirtualCOM:");
     // USER START (Optionally insert additional code for further widget initialization)
     // USER END
     break;
@@ -111,6 +118,24 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
       }
       break;
     case ID_CHECKBOX_0: // Notifications sent by 'Checkbox'
+      switch(NCode) {
+      case WM_NOTIFICATION_CLICKED:
+        // USER START (Optionally insert code for reacting on notification message)
+        // USER END
+        break;
+      case WM_NOTIFICATION_RELEASED:
+        // USER START (Optionally insert code for reacting on notification message)
+        // USER END
+        break;
+      case WM_NOTIFICATION_VALUE_CHANGED:
+        // USER START (Optionally insert code for reacting on notification message)
+        // USER END
+        break;
+      // USER START (Optionally insert additional code for further notification handling)
+      // USER END
+      }
+      break;
+    case ID_MULTIEDIT_0: // Notifications sent by 'Multiedit'
       switch(NCode) {
       case WM_NOTIFICATION_CLICKED:
         // USER START (Optionally insert code for reacting on notification message)
