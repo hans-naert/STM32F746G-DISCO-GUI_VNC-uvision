@@ -138,7 +138,7 @@
 //     <o.0..15>Maximum Output Report Size (in bytes) <1-65535>
 //     <i>Allocates memory and configures 'len' value for USBD_HID0_SetReport
 //     <i>when rtype=HID_REPORT_OUTPUT.
-#define USBD_HID0_OUT_REPORT_MAX_SZ               1
+#define USBD_HID0_OUT_REPORT_MAX_SZ               64
 
 //     <o.0..15>Maximum Feature Report Size (in bytes) <1-65535>
 //     <i>Allocates memory and configures 'len' value for USBD_HID0_SetReport

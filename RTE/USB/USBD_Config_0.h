@@ -39,7 +39,7 @@
 
 //     <o.0..15>Product ID <0x0000-0xFFFF>
 //     <i>Product ID assigned by manufacturer (idProduct).
-#define USBD0_DEV_DESC_IDPRODUCT        0x0000
+#define USBD0_DEV_DESC_IDPRODUCT        0x4501
 
 //     <o.0..15>Device Release Number <0x0000-0xFFFF>
 //     <i>Device Release Number in binary-coded decimal (bcdDevice).
