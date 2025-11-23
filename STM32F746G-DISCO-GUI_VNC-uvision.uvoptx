@@ -192,13 +192,13 @@
         <SubType>1</SubType>
       </ScvdPack>
       <ScvdPack>
-        <Filename>C:\Users\u0081767\AppData\Local\Arm\Packs\Keil\MDK-Middleware\8.0.0\Components\Network\Network.scvd</Filename>
-        <Type>Keil::MDK-Middleware@8.0.0</Type>
+        <Filename>C:\Users\u0081767\AppData\Local\Arm\Packs\ARM\CMSIS\6.2.0\CMSIS\Driver\VIO\cmsis_vio.scvd</Filename>
+        <Type>ARM::CMSIS@6.2.0</Type>
         <SubType>1</SubType>
       </ScvdPack>
       <ScvdPack>
-        <Filename>C:\Users\u0081767\AppData\Local\Arm\Packs\ARM\CMSIS\6.2.0\CMSIS\Driver\VIO\cmsis_vio.scvd</Filename>
-        <Type>ARM::CMSIS@6.2.0</Type>
+        <Filename>C:\Users\u0081767\AppData\Local\Arm\Packs\Keil\MDK-Middleware\8.1.0\Components\Network\Network.scvd</Filename>
+        <Type>Keil::MDK-Middleware@8.1.0</Type>
         <SubType>1</SubType>
       </ScvdPack>
       <Tracepoint>
@@ -523,7 +523,7 @@
 
   <Group>
     <GroupName>:CubeMX:STM32 HAL Driver</GroupName>
-    <tvExp>0</tvExp>
+    <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
@@ -1071,7 +1071,7 @@
 
   <Group>
     <GroupName>Middlewares/BlueNRG-MS/Wireless/BlueNRG-MS/Utils</GroupName>
-    <tvExp>0</tvExp>
+    <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
@@ -1079,7 +1079,7 @@
       <GroupNumber>4</GroupNumber>
       <FileNumber>67</FileNumber>
       <FileType>1</FileType>
-      <tvExp>1</tvExp>
+      <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
       <PathWithFileName>.\STM32CubeMX\Target_1\STM32CubeMX\Middlewares\ST\BlueNRG-MS\utils\ble_list.c</PathWithFileName>
@@ -1091,7 +1091,7 @@
 
   <Group>
     <GroupName>Middlewares/BlueNRG-MS/Wireless/BlueNRG-MS/Controller</GroupName>
-    <tvExp>1</tvExp>
+    <tvExp>0</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
@@ -1171,7 +1171,7 @@
 
   <Group>
     <GroupName>Middlewares/BlueNRG-MS/Wireless/BlueNRG-MS/HCI_TL/Basic</GroupName>
-    <tvExp>1</tvExp>
+    <tvExp>0</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>

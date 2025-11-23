@@ -121,17 +121,17 @@ static void MX_LTDC_Init(void);
 static void MX_QUADSPI_Init(void);
 static void MX_SAI2_Init(void);
 static void MX_SPDIFRX_Init(void);
-static void MX_SPI2_Init(void);
 static void MX_TIM1_Init(void);
 static void MX_TIM2_Init(void);
 static void MX_TIM3_Init(void);
 static void MX_TIM5_Init(void);
 static void MX_TIM8_Init(void);
 static void MX_TIM12_Init(void);
-static void MX_USART1_UART_Init(void);
 static void MX_USART6_UART_Init(void);
 static void MX_USB_OTG_FS_HCD_Init(void);
 static void MX_SDMMC1_SD_Init(void);
+static void MX_SPI2_Init(void);
+static void MX_USART1_UART_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -258,16 +258,16 @@ int main(void)
   MX_QUADSPI_Init();
   MX_SAI2_Init();
   MX_SPDIFRX_Init();
-  MX_SPI2_Init();
   MX_TIM1_Init();
   MX_TIM2_Init();
   MX_TIM3_Init();
   MX_TIM5_Init();
   MX_TIM8_Init();
   MX_TIM12_Init();
-  MX_USART1_UART_Init();
   MX_USART6_UART_Init();
   MX_USB_OTG_FS_HCD_Init();
+  MX_SPI2_Init();
+  MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
 	SCB_CleanInvalidateDCache();  // Flush (clean) + invalidate entire D-Cache
 	SCB_DisableDCache();          // Then disable it
