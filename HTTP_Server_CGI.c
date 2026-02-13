@@ -132,7 +132,7 @@ void netCGI_ProcessData (uint8_t code, const char *data, uint32_t len) {
   }
 
   led_port = 0;
-  LEDrun   = true;
+  LEDrun   = false; //true;
   if (len == 0) {
     // No data or all items (radio, checkbox) are off
     vioSetSignal(0xFFU, led_port);
@@ -195,6 +195,12 @@ void netCGI_ProcessData (uint8_t code, const char *data, uint32_t len) {
       strcpy (lcd_text[1], var+5);
       printf("LCD2: %s\n", lcd_text[1]);
     }
+    else if (strcmp (var, "toggle-button=true") == 0) {
+				printf("toggle-button=true received\n");
+        static uint32_t led0_state = 0U;
+        led0_state ^= 1U;
+        led_port |= led0_state;
+    }
   } while (data);
   vioSetSignal(0xFFU, led_port);
 }
@@ -213,6 +219,7 @@ uint32_t netCGI_Script (const char *env, char *buf, uint32_t buf_len, uint32_t *
     case 'g': fn = cgi_ad;       break;
     case 'x': fn = cgx_ad;       break;
     case 'y': fn = cgx_button;   break;
+		case 'z':	return sprintf(buf, &env[1], vioGetSignal(vioBUTTON0) ? "checked" : "");
     default:  return (0);
   }
   return ((uint32_t)fn (&env[1], buf, buf_len, pcgi));

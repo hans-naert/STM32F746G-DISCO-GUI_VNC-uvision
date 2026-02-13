@@ -806,11 +806,6 @@
               <FilePath>.\Web\home.png</FilePath>
             </File>
             <File>
-              <FileName>index.htm</FileName>
-              <FileType>9</FileType>
-              <FilePath>.\Web\index.htm</FilePath>
-            </File>
-            <File>
               <FileName>keil.gif</FileName>
               <FileType>9</FileType>
               <FilePath>.\Web\keil.gif</FilePath>
@@ -869,6 +864,31 @@
               <FileName>xml_http.js</FileName>
               <FileType>9</FileType>
               <FilePath>.\Web\xml_http.js</FilePath>
+            </File>
+            <File>
+              <FileName>script.js</FileName>
+              <FileType>9</FileType>
+              <FilePath>.\Web\script.js</FilePath>
+            </File>
+            <File>
+              <FileName>button.cgi</FileName>
+              <FileType>9</FileType>
+              <FilePath>.\Web\button.cgi</FilePath>
+            </File>
+            <File>
+              <FileName>vives_logo.png</FileName>
+              <FileType>9</FileType>
+              <FilePath>.\Web\vives_logo.png</FilePath>
+            </File>
+            <File>
+              <FileName>demo.cgi</FileName>
+              <FileType>9</FileType>
+              <FilePath>.\Web\demo.cgi</FilePath>
+            </File>
+            <File>
+              <FileName>demo.htm</FileName>
+              <FileType>9</FileType>
+              <FilePath>.\Web\demo.htm</FilePath>
             </File>
           </Files>
         </Group>
