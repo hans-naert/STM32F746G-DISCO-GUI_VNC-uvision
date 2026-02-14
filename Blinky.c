@@ -31,6 +31,8 @@ static osThreadId_t tid_thrButton;      // Thread id of thread: Button
 /*-----------------------------------------------------------------------------
   thrLED: blink LED
  *----------------------------------------------------------------------------*/
+void send_udp_data (void);
+
 static __NO_RETURN void thrLED (void *argument) {
   uint32_t active_flag = 0U;
 
@@ -39,8 +41,9 @@ static __NO_RETURN void thrLED (void *argument) {
   for (;;) {
     if (osThreadFlagsWait(1U, osFlagsWaitAny, 0U) == 1U) {
       active_flag ^= 1U;
+			send_udp_data();
     }
-
+/*
     if (active_flag == 1U) {
       vioSetSignal(vioLED0, vioLEDoff);         // Switch LED0 off
       vioSetSignal(vioLED1, vioLEDon);          // Switch LED1 on
@@ -55,7 +58,8 @@ static __NO_RETURN void thrLED (void *argument) {
       vioSetSignal(vioLED0, vioLEDoff);         // Switch LED0 off
       osDelay(500U);                            // Delay 500 ms
     }
-  }
+*/
+  }		
 }
 
 /*-----------------------------------------------------------------------------
@@ -82,6 +86,8 @@ static __NO_RETURN void thrButton (void *argument) {
 /*-----------------------------------------------------------------------------
  * Application main thread
  *----------------------------------------------------------------------------*/
+int udp_demo (void);
+
 /* IP address change notification */
 void netDHCP_Notify (uint32_t if_id, uint8_t option, const uint8_t *val, uint32_t len) {
   char ip_ascii[16];
@@ -91,6 +97,9 @@ void netDHCP_Notify (uint32_t if_id, uint8_t option, const uint8_t *val, uint32_
     netIP_ntoa (NET_ADDR_IP4, val, ip_ascii, sizeof(ip_ascii));
     printf("IP4: %s\n",ip_ascii);
   }
+	
+	printf("start UDP_demo\n");
+	udp_demo ();	
 }
 
 __NO_RETURN void app_main_thread (void *argument) {

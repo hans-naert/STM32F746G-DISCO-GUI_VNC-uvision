@@ -12,17 +12,17 @@
 
 // <e>Network Debug
 // <i>Enable generation of diagnostic messages
-#define NET_DEBUG_ENABLE        0
+#define NET_DEBUG_ENABLE        1
 
 //   <o>Output Channel <0=>Event Recorder
 //                     <1=>STDIO
 //                     <2=>STDIO + Timestamp
 //   <i>Select output channel for delivery of diagnostic messages
-#define NET_DEBUG_CHANNEL       0
+#define NET_DEBUG_CHANNEL       1
 
 //   <e>System
 //   <i>Enable generation of system diagnostic messages
-#define NET_DEBUG_SYSTEM        1
+#define NET_DEBUG_SYSTEM        0
 
 //     <o>Memory Management  <0=>Off <1=>Errors <2=>All
 //     <i>Configure Dynamic Memory Management diagnostics
@@ -51,7 +51,7 @@
 
 //   <e>IPv4
 //   <i>Enable generation of IPv4 diagnostic messages
-#define NET_DEBUG_IP4           1
+#define NET_DEBUG_IP4           0
 
 //     <o>IPv4 Core  <0=>Off <1=>Errors <2=>All
 //     <i>Configure IPv4 Core diagnostics
@@ -80,7 +80,7 @@
 
 //   <e>IPv6
 //   <i>Enable generation of IPv6 diagnostic messages
-#define NET_DEBUG_IP6           1
+#define NET_DEBUG_IP6           0
 
 //     <o>IPv6 Core  <0=>Off <1=>Errors <2=>All
 //     <i>Configure IPv6 Core diagnostics
@@ -109,7 +109,7 @@
 
 //     <o>UDP Socket  <0=>Off <1=>Errors <2=>All
 //     <i>Configure UDP native socket diagnostics
-#define NET_DEBUG_UDP           1
+#define NET_DEBUG_UDP           2
 
 //     <o>TCP Socket  <0=>Off <1=>Errors <2=>All
 //     <i>Configure TCP native socket diagnostics
