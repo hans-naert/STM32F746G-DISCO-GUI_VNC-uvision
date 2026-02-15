@@ -56,12 +56,21 @@
 /* Keil::Network&MDK:Interface:ETH@8.2.0 */
 #define RTE_Network_Interface_ETH_0     /* Network Interface ETH 0 */
 
+/* Keil::Network&MDK:Service:DNS Client@8.2.0 */
+#define RTE_Network_DNS_Client          /* Network DNS Client */
 /* Keil::Network&MDK:Socket:BSD@8.2.0 */
 #define RTE_Network_Socket_BSD          /* Network Socket BSD */
 /* Keil::Network&MDK:Socket:TCP@8.2.0 */
 #define RTE_Network_Socket_TCP          /* Network Socket TCP */
 /* Keil::Network&MDK:Socket:UDP@8.2.0 */
 #define RTE_Network_Socket_UDP          /* Network Socket UDP */
+/* MDK-Packs::IoT Client:MQTTClient-C@1.1.2 */
+#define RTE_IoT_Client_MQTTClient_C     /* MQTTClient-C IoT Client */
+/* MDK-Packs::IoT Utility:MQTTPacket@1.1.0 */
+#define RTE_IoT_MQTTPacket              /* IoT MQTTPacket */
+/* MDK-Packs::IoT Utility:Socket:MDK Network@1.3.0 */
+#define RTE_IoT_Socket                  /* IoT Socket */
+#define RTE_IoT_Socket_MDK_Network      /* IoT Socket: MDK Network */
 /* Segger::Graphics&MDK-Pro:CORE@6.32.3 */
 #define RTE_Graphics_Core               /* Graphics Core */
 /* Segger::Graphics&MDK-Pro:Input Device:Touchscreen@6.32.3 */
