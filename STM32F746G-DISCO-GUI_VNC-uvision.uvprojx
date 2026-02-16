@@ -485,6 +485,11 @@
               <FileType>1</FileType>
               <FilePath>.\stm32746g_discovery.c</FilePath>
             </File>
+            <File>
+              <FileName>MQTTEcho.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\MQTTEcho.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -786,9 +791,6 @@
         <Group>
           <GroupName>::Network</GroupName>
         </Group>
-        <Group>
-          <GroupName>::Security</GroupName>
-        </Group>
       </Groups>
     </Target>
   </Targets>
@@ -914,12 +916,6 @@
       </component>
       <component Capiversion="2.3.0" Cclass="CMSIS" Cgroup="RTOS2" Csub="Keil RTX5" Cvariant="Source" Cvendor="ARM" Cversion="5.9.0" condition="RTX5" ymlID="CMSIS:RTOS2:Keil RTX5&amp;Source">
         <package name="CMSIS-RTX" schemaVersion="1.7.36" url="https://www.keil.com/pack/" vendor="ARM" version="5.9.0"/>
-        <targetInfos>
-          <targetInfo name="Target_1"/>
-        </targetInfos>
-      </component>
-      <component Cclass="Security" Cgroup="mbed TLS" Cvendor="ARM" Cversion="3.1.0" ymlID="Security:mbed TLS">
-        <package name="mbedTLS" schemaVersion="1.6.3" url="https://www.keil.com/pack/" vendor="ARM" version="3.1.1"/>
         <targetInfos>
           <targetInfo name="Target_1"/>
         </targetInfos>
@@ -1145,20 +1141,16 @@
         </targetInfos>
       </file>
       <file attr="config" category="header" name="RTE\configs\mbedTLS_config.h" version="3.1.0">
-        <instance index="0">RTE\Security\mbedTLS_config.h</instance>
+        <instance index="0" removed="1">RTE\Security\mbedTLS_config.h</instance>
         <component Cclass="Security" Cgroup="mbed TLS" Cvendor="ARM" Cversion="3.1.0"/>
         <package name="mbedTLS" schemaVersion="1.6.3" url="https://www.keil.com/pack/" vendor="ARM" version="3.1.1"/>
-        <targetInfos>
-          <targetInfo name="Target_1"/>
-        </targetInfos>
+        <targetInfos/>
       </file>
       <file attr="config" category="header" name="RTE\configs\mbedTLS_crypto_config.h" version="3.1.0">
-        <instance index="0">RTE\Security\mbedTLS_crypto_config.h</instance>
+        <instance index="0" removed="1">RTE\Security\mbedTLS_crypto_config.h</instance>
         <component Cclass="Security" Cgroup="mbed TLS" Cvendor="ARM" Cversion="3.1.0"/>
         <package name="mbedTLS" schemaVersion="1.6.3" url="https://www.keil.com/pack/" vendor="ARM" version="3.1.1"/>
-        <targetInfos>
-          <targetInfo name="Target_1"/>
-        </targetInfos>
+        <targetInfos/>
       </file>
     </files>
   </RTE>

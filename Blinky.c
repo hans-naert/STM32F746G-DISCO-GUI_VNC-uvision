@@ -27,6 +27,7 @@
 
 static osThreadId_t tid_thrLED;         // Thread id of thread: LED
 static osThreadId_t tid_thrButton;      // Thread id of thread: Button
+static osThreadId_t tid_app_main;
 
 /*-----------------------------------------------------------------------------
   thrLED: blink LED
@@ -82,6 +83,7 @@ static __NO_RETURN void thrButton (void *argument) {
 /*-----------------------------------------------------------------------------
  * Application main thread
  *----------------------------------------------------------------------------*/
+void MQTTEcho_Test (void);
 /* IP address change notification */
 void netDHCP_Notify (uint32_t if_id, uint8_t option, const uint8_t *val, uint32_t len) {
   char ip_ascii[16];
@@ -90,6 +92,7 @@ void netDHCP_Notify (uint32_t if_id, uint8_t option, const uint8_t *val, uint32_
   if ((if_id == (NET_IF_CLASS_ETH | 0)) && (option == NET_DHCP_OPTION_IP_ADDRESS)) {
     netIP_ntoa (NET_ADDR_IP4, val, ip_ascii, sizeof(ip_ascii));
     printf("IP4: %s\n",ip_ascii);
+		osThreadFlagsSet(tid_app_main, 1U);
   }
 }
 
@@ -104,7 +107,7 @@ __NO_RETURN void app_main_thread (void *argument) {
   tid_thrButton = osThreadNew(thrButton, NULL, NULL);   // Create Button thread
 	
 	netInitialize ();
-	
+
 	printf("IP4: Waiting for DHCP\n");
   if (netIF_GetOption(NET_IF_CLASS_ETH | 0,
                       netIF_OptionIP6_LinkLocalAddress,
@@ -113,7 +116,11 @@ __NO_RETURN void app_main_thread (void *argument) {
     netIP_ntoa(NET_ADDR_IP6, ip_addr, ip_ascii, sizeof(ip_ascii));
     printf("IP6: %s\n", ip_ascii);
 	}
-	
+											
+	//wait until IP4 is assigned
+	osThreadFlagsWait(1U, osFlagsWaitAny,osWaitForever);
+	MQTTEcho_Test();
+												
 	osThreadExit();
 	
   for (;;) {                            // Loop forever
@@ -127,7 +134,7 @@ int Init_GUIThread (void);
 
 int app_main (void) {
   osKernelInitialize();                         /* Initialize CMSIS-RTOS2 */
-  osThreadNew(app_main_thread, NULL, NULL);
+  tid_app_main = osThreadNew(app_main_thread, NULL, NULL);
 	Init_GUIThread();
   osKernelStart();                              /* Start thread execution */
   return 0;
