@@ -1,5 +1,7 @@
 # GUI_VNC example project & Bluetooth
 
+The project is ready for immediate use. The following steps describe the initial creation process and are provided for reference only.
+
 ## Start from project with emWin en VNC
 
 ![VNC - Real VNC](doc/VNC.png)
