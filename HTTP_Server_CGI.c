@@ -31,6 +31,7 @@ static char lcd_text[2][20+1] = { "LCD line 1", "LCD line 2" };
 // Script interpreter functions
 static int32_t cgi_network (const char *env, char *buf, uint32_t buf_len, uint32_t *state);
 static int32_t cgi_leds    (const char *env, char *buf, uint32_t buf_len, uint32_t *state);
+static int32_t cgi_les    (const char *env, char *buf, uint32_t buf_len, uint32_t *state);
 static int32_t cgi_tcp     (const char *env, char *buf, uint32_t buf_len, uint32_t *state);
 static int32_t cgi_system  (const char *env, char *buf, uint32_t buf_len, uint32_t *state);
 static int32_t cgi_language(const char *env, char *buf, uint32_t buf_len, uint32_t *state);
@@ -213,9 +214,30 @@ uint32_t netCGI_Script (const char *env, char *buf, uint32_t buf_len, uint32_t *
     case 'g': fn = cgi_ad;       break;
     case 'x': fn = cgx_ad;       break;
     case 'y': fn = cgx_button;   break;
+		case 'z': fn = cgi_les;   break;
     default:  return (0);
   }
   return ((uint32_t)fn (&env[1], buf, buf_len, pcgi));
+}
+
+// CGI-script implementation: "leds.cgi"
+static int32_t cgi_les (const char *env, char *buf, uint32_t buf_len, uint32_t *state) {
+  int32_t mask, len = 0;
+
+  (void)buf_len;
+  (void)state;
+
+  switch (env[0]) {
+    case '1':
+      // Select Control
+      len = sprintf (buf, &env[2], "Hello Vives");
+      break;
+		case '2':
+      // Select Control
+		len = sprintf (buf, &env[2], vioGetSignal(0x1) ? "checked" : "");
+      break;
+	}
+  return (len);
 }
 
 // CGI-script implementation: "network.cgi"

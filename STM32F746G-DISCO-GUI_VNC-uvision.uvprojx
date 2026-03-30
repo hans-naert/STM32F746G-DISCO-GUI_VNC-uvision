@@ -870,6 +870,21 @@
               <FileType>9</FileType>
               <FilePath>.\Web\xml_http.js</FilePath>
             </File>
+            <File>
+              <FileName>demo.htm</FileName>
+              <FileType>9</FileType>
+              <FilePath>.\Web\demo.htm</FilePath>
+            </File>
+            <File>
+              <FileName>script.js</FileName>
+              <FileType>9</FileType>
+              <FilePath>.\Web\script.js</FilePath>
+            </File>
+            <File>
+              <FileName>demo.cgi</FileName>
+              <FileType>9</FileType>
+              <FilePath>.\Web\demo.cgi</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
