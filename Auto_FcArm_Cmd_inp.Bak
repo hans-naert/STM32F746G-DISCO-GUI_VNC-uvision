@@ -19,5 +19,6 @@ tcp.cgi,
 xml_http.js,
 demo.htm,
 script.js,
-demo.cgi 
+demo.cgi,
+button.cgi 
 TO Web.c RTE NOPRINT ROOT(Web)

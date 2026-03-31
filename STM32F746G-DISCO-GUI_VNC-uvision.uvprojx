@@ -885,6 +885,11 @@
               <FileType>9</FileType>
               <FilePath>.\Web\demo.cgi</FilePath>
             </File>
+            <File>
+              <FileName>button.cgi</FileName>
+              <FileType>9</FileType>
+              <FilePath>.\Web\button.cgi</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
