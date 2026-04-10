@@ -24,6 +24,7 @@
 #include "cmsis_os2.h"                  // ::CMSIS:RTOS2
 #include "cmsis_vio.h"
 #include "rl_net.h"                     // Keil::Network&MDK:CORE
+#include "Net_Config_ETH_0.h"
 
 static osThreadId_t tid_thrLED;         // Thread id of thread: LED
 static osThreadId_t tid_thrButton;      // Thread id of thread: Button
@@ -121,8 +122,12 @@ __NO_RETURN void app_main_thread (void *argument) {
   tid_thrButton = osThreadNew(thrButton, NULL, NULL);   // Create Button thread
 	
 	netInitialize ();
-	
-	printf("IP4: Waiting for DHCP\n");
+
+#if (ETH0_DHCP_ENABLE != 0)
+  printf("IP4: Waiting for DHCP\n");
+#else
+  printf("IP4: %s (static)\n", ETH0_IP4_ADDR);
+#endif
   if (netIF_GetOption(NET_IF_CLASS_ETH | 0,
                       netIF_OptionIP6_LinkLocalAddress,
                       ip_addr, sizeof(ip_addr)) == netOK) {
