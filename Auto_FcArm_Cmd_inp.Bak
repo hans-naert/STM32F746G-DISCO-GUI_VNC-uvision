@@ -20,5 +20,6 @@ script.js,
 button.cgi,
 vives_logo.png,
 demo.cgi,
-demo.htm 
+demo.htm,
+..\..\..\..\iot-systems-ao\voorbereiding\HTTP_Server\Web\index.htm 
 TO Web.c RTE NOPRINT ROOT(Web)
