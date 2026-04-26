@@ -25,6 +25,8 @@
 #include "cmsis_vio.h"
 #include "rl_net.h"                     // Keil::Network&MDK:CORE
 
+#include "vio.h"
+
 static osThreadId_t tid_thrLED;         // Thread id of thread: LED
 static osThreadId_t tid_thrButton;      // Thread id of thread: Button
 
@@ -40,6 +42,7 @@ static __NO_RETURN void thrLED (void *argument) {
     if (osThreadFlagsWait(1U, osFlagsWaitAny, 0U) == 1U) {
       active_flag ^= 1U;
     }
+		
 
     if (active_flag == 1U) {
       vioSetSignal(vioLED0, vioLEDoff);         // Switch LED0 off
@@ -75,6 +78,9 @@ static __NO_RETURN void thrButton (void *argument) {
       }
       last = state;
     }
+		
+	  vioSetSignal(vioEXTLED0, vioGetSignal(vioEXTBUTTON0)?vioEXTLEDon:vioEXTLEDoff);
+		
     osDelay(100U);
   }
 }

@@ -34,6 +34,7 @@ The table below lists the physical I/O mapping of this CMSIS-Driver VIO implemen
 */
 
 #include "cmsis_vio.h"
+#include "vio.h"
 
 #include "RTE_Components.h"                     // Component selection
 #include CMSIS_device_header
@@ -67,14 +68,18 @@ typedef struct {
 
 #if !defined CMSIS_VOUT
 // VOUT Configuration
-static const pinCfg_t outputCfg[] = { vioLED0, GPIO_PIN_ID_PORTI(1), ARM_GPIO_PULL_NONE, VIO_ACTIVE_HIGH};
+static const pinCfg_t outputCfg[] = {
+           { vioLED0, GPIO_PIN_ID_PORTI(1), ARM_GPIO_PULL_NONE, VIO_ACTIVE_HIGH},
+					 { vioEXTLED0, GPIO_PIN_ID_PORTF(6), ARM_GPIO_PULL_NONE, VIO_ACTIVE_HIGH}
+				 };
 #endif
 
 #if !defined CMSIS_VIN
 // VIN Configuration
 static const pinCfg_t inputCfg[] = {
 //  signal,     pin,                   pull resistor,      active state
-  { vioBUTTON0, GPIO_PIN_ID_PORTI(11), ARM_GPIO_PULL_NONE, VIO_ACTIVE_HIGH }
+  { vioBUTTON0, GPIO_PIN_ID_PORTI(11), ARM_GPIO_PULL_NONE, VIO_ACTIVE_HIGH },
+	{ vioEXTBUTTON0, GPIO_PIN_ID_PORTF(10), ARM_GPIO_PULL_NONE, VIO_ACTIVE_HIGH }
 };
 #endif
 
