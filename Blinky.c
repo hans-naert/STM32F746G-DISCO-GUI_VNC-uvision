@@ -24,11 +24,18 @@
 #include "cmsis_os2.h"                  // ::CMSIS:RTOS2
 #include "cmsis_vio.h"
 #include "rl_net.h"                     // Keil::Network&MDK:CORE
-
 #include "vio.h"
 
 static osThreadId_t tid_thrLED;         // Thread id of thread: LED
 static osThreadId_t tid_thrButton;      // Thread id of thread: Button
+
+static void extButton0Event (void) {
+  if (vioGetSignal(vioEXTBUTTON0) != 0U) {
+    vioSetSignal(vioEXTLED0, vioEXTLEDon);
+  } else {
+    vioSetSignal(vioEXTLED0, vioEXTLEDoff);
+  }
+}
 
 /*-----------------------------------------------------------------------------
   thrLED: blink LED
@@ -78,9 +85,7 @@ static __NO_RETURN void thrButton (void *argument) {
       }
       last = state;
     }
-		
-	  vioSetSignal(vioEXTLED0, vioGetSignal(vioEXTBUTTON0)?vioEXTLEDon:vioEXTLEDoff);
-		
+
     osDelay(100U);
   }
 }
@@ -108,6 +113,9 @@ __NO_RETURN void app_main_thread (void *argument) {
 
   tid_thrLED = osThreadNew(thrLED, NULL, NULL);         // Create LED thread
   tid_thrButton = osThreadNew(thrButton, NULL, NULL);   // Create Button thread
+
+  vioSetSignal(vioEXTLED0, vioEXTLEDon);
+  vioRegisterExtButton0Event(extButton0Event);
 	
 	netInitialize ();
 	

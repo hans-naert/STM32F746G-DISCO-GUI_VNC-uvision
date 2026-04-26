@@ -86,7 +86,29 @@ static const pinCfg_t inputCfg[] = {
 // External GPIO Driver
 extern ARM_DRIVER_GPIO Driver_GPIO0;
 static ARM_DRIVER_GPIO *pGPIODrv = &Driver_GPIO0;
+
+static const pinCfg_t       *vioExtButton0Cfg;
+static vioExtButton0Event_t  vioExtButton0Cb;
+
+static void vioGpioEvent (ARM_GPIO_Pin_t pin, uint32_t event) {
+  (void)event;
+  if ((vioExtButton0Cfg != NULL) && (pin == (ARM_GPIO_Pin_t)vioExtButton0Cfg->pin)) {
+    if (vioExtButton0Cb != NULL) {
+      vioExtButton0Cb();
+    }  
+  }   
+}
 #endif
+
+void vioRegisterExtButton0Event (vioExtButton0Event_t cb_event) {
+  vioExtButton0Cb = cb_event;
+}
+
+// ISR: route EXTI15_10 to HAL, which calls HAL_GPIO_EXTI_Rising/Falling_Callback,
+// which the GPIO_STM32 driver implements to invoke the registered cb_event.
+void EXTI15_10_IRQHandler (void) {
+  HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_10);
+}
 
 // Initialize test input, output.
 void vioInit (void) {
@@ -97,6 +119,7 @@ void vioInit (void) {
 
   vioSignalIn  = 0U;
   vioSignalOut = 0U;
+  vioExtButton0Cfg = NULL;
 
   for (n = 0U; n < VIO_VALUE_NUM; n++) {
     vioValue[n] = 0U;
@@ -122,7 +145,15 @@ void vioInit (void) {
 #if !defined CMSIS_VIN
   for (n = 0U; n < (sizeof(inputCfg) / sizeof(pinCfg_t)); n++) {
     pin = (ARM_GPIO_Pin_t)inputCfg[n].pin;
-    pGPIODrv->Setup(pin, NULL);
+    if (inputCfg[n].vioSignal == vioEXTBUTTON0) {
+      vioExtButton0Cfg = &inputCfg[n];
+      pGPIODrv->Setup(pin, vioGpioEvent);
+      pGPIODrv->SetEventTrigger(pin, ARM_GPIO_TRIGGER_EITHER_EDGE);
+      NVIC_SetPriority(EXTI15_10_IRQn, 5U);
+      NVIC_EnableIRQ(EXTI15_10_IRQn);
+    } else {
+      pGPIODrv->Setup(pin, NULL);
+    }
     pGPIODrv->SetPullResistor(pin, inputCfg[n].pullResistor);
     pGPIODrv->SetDirection(pin, ARM_GPIO_INPUT);
   }

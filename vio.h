@@ -15,3 +15,7 @@
 #define vioEXTBUTTON1          (1U << 10)   ///< \ref vioGetSignal \a mask parameter: EXT Push button 1
 #define vioEXTBUTTON2          (1U << 11)   ///< \ref vioGetSignal \a mask parameter: EXT Push button 2
 #define vioEXTBUTTON3          (1U << 12)   ///< \ref vioGetSignal \a mask parameter: EXT Push button 3
+
+typedef void (*vioExtButton0Event_t)(void);
+
+void vioRegisterExtButton0Event(vioExtButton0Event_t cb_event);
