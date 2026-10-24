@@ -18,11 +18,11 @@
 /* ARM::CMSIS-Compiler:STDOUT:Custom@1.1.0 */
 #define RTE_CMSIS_Compiler_STDOUT                /* CMSIS-Compiler STDOUT */
 #define RTE_CMSIS_Compiler_STDOUT_Custom         /* CMSIS-Compiler STDOUT: Custom */
-/* ARM::CMSIS:RTOS2:Keil RTX5&Source@5.9.0 */
+/* ARM::CMSIS:RTOS2:Keil RTX5&Source@5.9.1 */
 #define RTE_CMSIS_RTOS2                 /* CMSIS-RTOS2 */
 #define RTE_CMSIS_RTOS2_RTX5            /* CMSIS-RTOS2 Keil RTX5 */
 #define RTE_CMSIS_RTOS2_RTX5_SOURCE     /* CMSIS-RTOS2 Keil RTX5 Source */
-/* Keil::CMSIS Driver:Ethernet MAC@3.2.0 */
+/* Keil::CMSIS Driver:Ethernet MAC@3.3.0 */
 #define RTE_Drivers_ETH_MAC0            /* Driver ETH_MAC0 */
 /* Keil::CMSIS Driver:Ethernet PHY:LAN8742A@1.3.0 */
 #define RTE_Drivers_PHY_LAN8742A        /* Driver PHY LAN8742A */
@@ -48,29 +48,29 @@
 #define RTE_CMSIS_Driver_USART21        /* Driver USART21 (LPUART1) */
 #define RTE_CMSIS_Driver_USART22        /* Driver USART22 (LPUART2) */
 #define RTE_CMSIS_Driver_USART23        /* Driver USART23 (LPUART3) */
-/* Keil::CMSIS Driver:USB Device@3.1.0 */
+/* Keil::CMSIS Driver:USB Device@3.2.0 */
 #define RTE_Drivers_USBD0               /* Driver USBD0 */
 #define RTE_Drivers_USBD1               /* Driver USBD1 */
 /* Keil::Device:CubeMX@1.0.0 */
 #define RTE_DEVICE_CUBE_MX
 #define CMSIS_device_header "stm32f7xx.h"
-/* Keil::Network&MDK:CORE@8.1.0 */
+/* Keil::Network&MDK:CORE@8.3.0 */
 #define RTE_Network_Core                /* Network Core */
-/* Keil::Network&MDK:Interface:ETH@8.1.0 */
+/* Keil::Network&MDK:Interface:ETH@8.3.0 */
 #define RTE_Network_Interface_ETH_0     /* Network Interface ETH 0 */
 
-/* Keil::Network&MDK:Socket:BSD@8.1.0 */
+/* Keil::Network&MDK:Socket:BSD@8.3.0 */
 #define RTE_Network_Socket_BSD          /* Network Socket BSD */
-/* Keil::Network&MDK:Socket:TCP@8.1.0 */
+/* Keil::Network&MDK:Socket:TCP@8.3.0 */
 #define RTE_Network_Socket_TCP          /* Network Socket TCP */
-/* Keil::Network&MDK:Socket:UDP@8.1.0 */
+/* Keil::Network&MDK:Socket:UDP@8.3.0 */
 #define RTE_Network_Socket_UDP          /* Network Socket UDP */
-/* Keil::USB&MDK:CORE@8.0.0 */
+/* Keil::USB&MDK:CORE@8.0.2 */
 #define RTE_USB_Core                    /* USB Core */
-/* Keil::USB&MDK:Device:Custom Class@8.0.0 */
+/* Keil::USB&MDK:Device:Custom Class@8.0.2 */
 #define RTE_USB_Device_CustomClass_0    /* USB Device Custom Class instance 0 */
 
-/* Keil::USB&MDK:Device@8.0.0 */
+/* Keil::USB&MDK:Device@8.0.2 */
 #define RTE_USB_Device_0                /* USB Device 0 */
 
 /* Segger::Graphics&MDK-Pro:CORE@6.32.3 */

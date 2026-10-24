@@ -32,8 +32,8 @@
 #include "Driver_USBD.h"
 
 //// Example code variable declaration/definition: 
-//uint8_t class0_bulk_out_buf[64] = { 0 };
-//uint8_t class0_bulk_in_buf [64] = { 0 };
+uint8_t class0_bulk_out_buf[64] = { 0 };
+uint8_t class0_bulk_in_buf [64] = { 0 };
  
 // \brief Callback function called during USBD_Initialize to initialize the USB Custom class instance
 void USBD_CustomClass0_Initialize (void) {
@@ -56,10 +56,10 @@ void USBD_CustomClass0_EndpointStart (uint8_t ep_addr) {
   // Start communication on Endpoint
   (void)ep_addr;
  
-//  // Example code start reception on Endpoint 1 OUT: 
-//  if (ep_addr == USB_ENDPOINT_OUT(1)) {
-//    USBD_EndpointRead(0, USB_ENDPOINT_OUT(1), class0_bulk_out_buf, 64);
-//  }
+    // Example code start reception on Endpoint 1 OUT: 
+    if (ep_addr == USB_ENDPOINT_OUT(1)) {
+      USBD_EndpointRead(0, USB_ENDPOINT_OUT(1), class0_bulk_out_buf, 64);
+    }
 }
  
 // \brief Callback function called when Endpoint Stop was requested (by de-activating interface or activating configuration 0)
@@ -151,7 +151,7 @@ usbdRequestStatus USBD_CustomClass0_Endpoint0_InDataSent (uint32_t len) {
 //                                          - ARM_USBD_EVENT_IN  = data IN  sent
 void USBD_CustomClass0_Endpoint1_Event  (uint32_t event) {
 ////Example code variable declaration/definition
-//  uint32_t len;
+    uint32_t len;
 
   // Handle Endpoint 1 events
   if (event & ARM_USBD_EVENT_OUT) {     // OUT event
@@ -159,14 +159,14 @@ void USBD_CustomClass0_Endpoint1_Event  (uint32_t event) {
 //    // Example code upon reception on Endpoint 1 OUT echo received data on 
 //    // Endpoint 1 IN: 
 //    // Get number of received data bytes
-//    len = USBD_EndpointReadGetResult(0, USB_ENDPOINT_OUT(1));
+      len = USBD_EndpointReadGetResult(0, USB_ENDPOINT_OUT(1));
 //    // Copy received data bytes to transmit buffer
-//    memcpy(class0_bulk_in_buf, class0_bulk_out_buf, len);
+      memcpy(class0_bulk_in_buf, class0_bulk_out_buf, len);
 //    // Transmit back data bytes
-//    USBD_EndpointWrite(0, USB_ENDPOINT_IN(1) , class0_bulk_in_buf, len);
+      USBD_EndpointWrite(0, USB_ENDPOINT_IN(1) , class0_bulk_in_buf, len);
 
 //    // Restart reception on Endpoint 1 OUT: 
-//    USBD_EndpointRead (0, USB_ENDPOINT_OUT(1), class0_bulk_out_buf, 64);
+      USBD_EndpointRead (0, USB_ENDPOINT_OUT(1), class0_bulk_out_buf, 64);
   }
   if (event & ARM_USBD_EVENT_IN) {      // IN event
 
