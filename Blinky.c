@@ -18,6 +18,7 @@
  *---------------------------------------------------------------------------*/
 
 #include <stdio.h>
+#include <stdatomic.h>
 
 #include "main.h"
 
@@ -29,6 +30,11 @@
 
 static osThreadId_t tid_thrLED;         // Thread id of thread: LED
 static osThreadId_t tid_thrButton;      // Thread id of thread: Button
+
+uint8_t slider_report;
+int slider_prev = -1;  // Send the initial value too
+
+extern atomic_int slider_pos;
 
 /*-----------------------------------------------------------------------------
   thrLED: blink LED
@@ -127,6 +133,14 @@ __NO_RETURN void app_main_thread (void *argument) {
       but_prev = but;
       if (USBD_Configured (0)) { USBD_HID_GetReportTrigger(0U, 0U, &but, 1U); }
     }
+    slider_report = (uint8_t)atomic_load(&slider_pos);
+
+    if ((slider_report != slider_prev) && USBD_Configured(0)) {
+      if (USBD_HID_GetReportTrigger(0U, 0U, &slider_report, 1U) == usbOK) {
+        slider_prev = slider_report;
+      }
+    }
+
     osDelay(100U);                      // 100 ms delay for sampling buttons
   }
 	

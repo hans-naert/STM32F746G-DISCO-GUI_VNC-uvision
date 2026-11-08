@@ -19,6 +19,7 @@
 */
 
 // USER START (Optionally insert additional includes)
+#include <stdatomic.h>
 // USER END
 
 #include "DIALOG.h"
@@ -29,10 +30,11 @@
 *
 **********************************************************************
 */
-#define ID_FRAMEWIN_0     (GUI_ID_USER + 0x00)
-#define ID_BUTTON_0     (GUI_ID_USER + 0x01)
-#define ID_CHECKBOX_0     (GUI_ID_USER + 0x02)
-#define ID_TEXT_0     (GUI_ID_USER + 0x03)
+#define ID_FRAMEWIN_0 (GUI_ID_USER + 0x00)
+#define ID_BUTTON_0 (GUI_ID_USER + 0x01)
+#define ID_CHECKBOX_0 (GUI_ID_USER + 0x02)
+#define ID_TEXT_0 (GUI_ID_USER + 0x03)
+#define ID_SLIDER_0 (GUI_ID_USER + 0x04)
 
 
 // USER START (Optionally insert additional defines)
@@ -46,6 +48,7 @@
 */
 
 // USER START (Optionally insert additional static data)
+atomic_int slider_pos = 0;
 // USER END
 
 /*********************************************************************
@@ -57,6 +60,7 @@ static const GUI_WIDGET_CREATE_INFO _aDialogCreate[] = {
   { BUTTON_CreateIndirect, "Button", ID_BUTTON_0, 157, 96, 80, 20, 0, 0x0, 0 },
   { CHECKBOX_CreateIndirect, "Checkbox", ID_CHECKBOX_0, 160, 52, 80, 20, 0, 0x0, 0 },
   { TEXT_CreateIndirect, "Text", ID_TEXT_0, 0, 0, 80, 20, 0, 0x0, 0 },
+  { SLIDER_CreateIndirect, "Slider", ID_SLIDER_0, 67, 183, 317, 37, 0, 0x0, 0 },
   // USER START (Optionally insert additional widgets)
   // USER END
 };
@@ -90,6 +94,8 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
     hItem = WM_GetDialogItem(pMsg->hWin, ID_CHECKBOX_0);
     CHECKBOX_SetText(hItem, "Check");
     // USER START (Optionally insert additional code for further widget initialization)
+        hItem = WM_GetDialogItem(pMsg->hWin, ID_SLIDER_0);
+        SLIDER_SetRange(hItem, 0, 255);
     // USER END
     break;
   case WM_NOTIFY_PARENT:
@@ -121,6 +127,25 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
         // USER END
         break;
       case WM_NOTIFICATION_VALUE_CHANGED:
+        // USER START (Optionally insert code for reacting on notification message)
+        // USER END
+        break;
+      // USER START (Optionally insert additional code for further notification handling)
+      // USER END
+      }
+      break;
+    case ID_SLIDER_0: // Notifications sent by 'Slider'
+      switch(NCode) {
+      case WM_NOTIFICATION_CLICKED:
+        // USER START (Optionally insert code for reacting on notification message)
+        // USER END
+        break;
+      case WM_NOTIFICATION_RELEASED:
+        // USER START (Optionally insert code for reacting on notification message)
+        // USER END
+        break;
+      case WM_NOTIFICATION_VALUE_CHANGED:
+        atomic_store(&slider_pos, SLIDER_GetValue(pMsg->hWinSrc));
         // USER START (Optionally insert code for reacting on notification message)
         // USER END
         break;
